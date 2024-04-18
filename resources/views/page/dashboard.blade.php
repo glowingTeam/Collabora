@@ -8,6 +8,7 @@
             <button class="btn btn-outline-info" type="send">search</button>
         </form>
         <h1>this is dashboard page</h1>
+        <h1>geo in here</h1>
     </div>
 </div>
 @endsection
