@@ -1,9 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>Create your page here</h1>
 
-<div class="w-50 center border rounded px-3 py-3 mx-auto">
+<div class="w-50 center border px-3 py-3 mx-auto text-bg-light p-3 ktk">
         <h1>Create Event</h1>
         <form action="/create" method="POST">
             @csrf
@@ -17,16 +16,22 @@
                 <br>
                 <input class="form-control form-control-sm" type="text" placeholder="location" aria-label=".form-control-sm">
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">category</label>
-                <br>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>dropdown</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    <option value="4">Four</option>
-                </select>
+            <div class="d-flex mb-3">
+                <form>
+                    <div class="row form-group">
+                        <label for="date" class="">Date</label>
+                        <div class="col-sm-7">
+                            <div class="input-group date" id="datepicker">
+                                <input type="text" class="form-control">
+                                <span class="input-group-append">
+                                    <span class="input-group-text bg-white d-block">
+                                        <i class="fa fa-calendar"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">description</label>
@@ -40,4 +45,9 @@
         </form>
     </div>
 
+    <script type="text/javascript">
+        $(function() {
+            $('#datepicker').datepicker();
+        });
+    </script>
 @endsection

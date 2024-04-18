@@ -4,3 +4,14 @@ body {
     /* background-color: #E8D8C4; */
 }
 
+.mburi{
+    background-color: #E8D8C4;
+}
+nav{
+    background-color: #222831;
+}
+
+.ktk{
+    border-radius: 17px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}

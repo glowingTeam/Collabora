@@ -17,7 +17,7 @@
                     <td>{{ $item->name_event }}</td>
                     <td>{{ $item->location }}</td>
                     <td>{{ $item->description_event }}</td>
-                    <td><a class="btn btn-secondary btn-sm" href='{{ url('/siswa/'.$item->name_event) }}'>Detail</a></td>
+                    <td><a class="btn btn-secondary btn-sm" href='{{ url('/event/'.$item->name_event) }}'>Detail</a></td>
                 </tr>
             @endforeach 
         </tbody>
