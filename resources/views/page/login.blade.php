@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-<h1>this is login page</h1>
+    <h1>this is login page</h1>
 
-    <div class="w-50 center border rounded px-3 py-3 mx-auto">
+    <div class="w-50 center border rounded px-3 py-3 mx-auto bg-light">
         <h1>Login</h1>
         <form action="/login" method="POST">
             @csrf

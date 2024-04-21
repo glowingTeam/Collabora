@@ -1,14 +1,13 @@
-*,
+
 html,
 body {
     /* background-color: #E8D8C4; */
+    height: 100vh;
 }
 
 .mburi{
     background-color: #E8D8C4;
-}
-nav{
-    background-color: #222831;
+    height: 100%;
 }
 
 .ktk{

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="w-50 center border px-3 py-3 mx-auto text-bg-light p-3 ktk">
+<div class="w-50 center border px-3 py-3 mx-auto bg-light p-3 ktk">
         <h1>Create Event</h1>
         <form action="/create" method="POST">
             @csrf
