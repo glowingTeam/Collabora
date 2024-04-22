@@ -11,11 +11,11 @@ class SessionController extends Controller
     function dashboard() {
         return view("page/dashboard");
     }
-    function login() {
+    function index() {
         return view("page/login");
     }
 
-    function masuk(Request $request) {
+    function login(Request $request) {
         $request->validate([
             'email'=>'required',
             'password'=>'required'
@@ -34,5 +34,10 @@ class SessionController extends Controller
         } else {
             return 'failed';
         }
+    }
+    public function store(Request $Request){
+        $Request->validate([
+
+        ]);
     }
 }

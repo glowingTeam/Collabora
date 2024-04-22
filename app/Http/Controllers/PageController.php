@@ -18,8 +18,14 @@ class PageController extends Controller
     function create() {
         return view("page/create");
     }
+
     function login() {
         return view("page/login");
     }
+
+    function register() {
+        return view("page/register");
+    }
+
 
 }

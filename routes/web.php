@@ -16,9 +16,9 @@ use App\Http\Controllers\SessionController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -30,11 +30,11 @@ Route::get('/', [PageController::class, 'dashboard']);
 // Route::get('/event', [PageController::class, 'event']);
 Route::get('/create', [PageController::class, 'create']);
 Route::get('/login', [PageController::class, 'login']);
+Route::get('/register', [PageController::class, 'register']);
 
 
-
-Route::get('/dashboard', [SessionController::class, 'dashboard']);
-Route::post('/dashboard/login', [SessionController::class, 'login']);
+Route::get('/page', [SessionController::class, 'index']);
+Route::post('/page/login', [SessionController::class, 'login']);
 
 
 
