@@ -27,14 +27,16 @@ Route::get('event', [EventController::class, 'index']);
 Route::get('event/{id}', [EventController::class, 'detail'])->where('id', '[0-9]+');
 
 Route::get('/', [PageController::class, 'dashboard']);
-// Route::get('/event', [PageController::class, 'event']);
 Route::get('/create', [PageController::class, 'create']);
 Route::get('/login', [PageController::class, 'login']);
 Route::get('/register', [PageController::class, 'register']);
 
 
+
 Route::get('/page', [SessionController::class, 'index']);
 Route::post('/page/login', [SessionController::class, 'login']);
+Route::get('/page', [SessionController::class, 'register']);
+Route::post('/page/register', [SessionController::class, 'createAcc']);
 
 
 

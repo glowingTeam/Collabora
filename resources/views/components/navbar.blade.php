@@ -6,7 +6,7 @@
       </button>
       <div class="collapse  navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link text-light" aria-current="page" href="/dashboard">Dashboard</a>
+          <a class="nav-link text-light" aria-current="page" href="/">Dashboard</a>
           <a class="nav-link text-light" href="../event">Event</a>
           <a class="nav-link text-light" href="/create">create</a>
           <div class="d-flex flex-row-reverse">
