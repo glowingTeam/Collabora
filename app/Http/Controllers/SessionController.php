@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use app\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 
@@ -18,7 +19,8 @@ class SessionController extends Controller
         return view("page/login");
     }
 
-    function login(Request $request) {
+    function masuk(Request $request) {
+        Session::flash('email', $request->email);
         $request->validate([
             'email'=>'required',
             'password'=>'required'
@@ -33,22 +35,27 @@ class SessionController extends Controller
         ];
 
         if(Auth::attempt($datalogin)) {
-            return 'success';
+            return redirect('/dashboard')->with('success', 'berhasil login');
         } else {
-            return 'failed';
+            return redirect('page')->withErrors('Email dan Password yang dimasukkan tidak valid');
         }
+    }
+
+    function logout() {
+        Auth::logout();
+        return redirect('page')->with('succes', 'Berhasil Logout');
     }
 
     //register
     function register() {
         return view("page/register");
     }
-    public function createAcc(Request $request){
+    function createAcc(Request $request){
         Session::flash('name', $request->name);
         Session::flash('email', $request->email);
         $request->validate([
             'name'=>'required',
-            'email'=>'required|email|unique:users',
+            'email'=>'required|email|unique:account',
             'password'=>'required|min:6'
         ],[
             'name.required'=>'nama wajib diisi',
@@ -56,15 +63,15 @@ class SessionController extends Controller
             'email.email' => 'silahkan memasukan email yang valid',
             'email.unique' => 'email sudah pernah digunakan, silahkan pilih email yang lain',
             'password.required' => 'password wajib diisi',
-            'password.min' => 'minimal password e lebih dari 6 huruf lha ya cok cok',
+            'password.min' => 'minimal password e lebih dari 6 huruf lha ya cok cok'
         ]);
 
         $data = [
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>$request->password
+            'password'=>Hash::make($request->password)
         ];
-        User::create($data);
+        User::createAcc($data);
 
         $infologin = [
             'email' => $request->email,
@@ -72,9 +79,9 @@ class SessionController extends Controller
         ];
 
         if (Auth::attempt($infologin)) {
-            return redirect('event')->with('success', 'Berhasisl login');
+            return redirect('dashboard')->with('success', 'Berhasil login');
         }else{
-            return redirect('sesi')->withErrors('Username dan passwword yang dimasukan tidak valiis')
+            return redirect('page')->withErrors('Username dan passwword yang dimasukan tidak valiis');
         }
     }
 }
