@@ -79,9 +79,11 @@ class SessionController extends Controller
         ];
 
         if (Auth::attempt($infologin)) {
-            return redirect('event')->with('success', 'Berhasisl login');
+            // return redirect('dashboard')->with('success', 'Berhasil login');
+            return 'sukses';
         }else{
-            return redirect('sesi')->withErrors('Username dan passwword yang dimasukan tidak valiis');
+            // return redirect('page')->withErrors('Username dan passwword yang dimasukan tidak valiis');
+            return 'gagal';
         }
     }
 }

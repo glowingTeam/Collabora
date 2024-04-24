@@ -39,7 +39,7 @@ Route::get('/register', [PageController::class, 'register']);
 
 Route::get('/page', [SessionController::class, 'index']);
 Route::post('/page/login', [SessionController::class, 'masuk']);
-Route::get('/page/register', [SessionController::class, 'logout']);
+// Route::get('/page/register', [SessionController::class, 'logout']);
 Route::get('/page/register', [SessionController::class, 'register']);
 Route::post('/page/register', [SessionController::class, 'createAcc']);
 
