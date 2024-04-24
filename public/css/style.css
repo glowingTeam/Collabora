@@ -17,3 +17,7 @@ body {
 .evt{
     border-radius: 10px;
 }
+
+.flex-item {
+    margin-right: 10px; /* Adjust as needed */
+}

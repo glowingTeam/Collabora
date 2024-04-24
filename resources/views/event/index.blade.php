@@ -2,9 +2,15 @@
 
 @section('content')
 
-    <div class="my-5">
+<div class="d-flex mb-4">
+    <form action="" class="flex-item col-4">
+        <input class="form-control mme 2" type="search" placeholder="search">
+    </form>
+    <button class="btn bg-dark text-white flex-item" type="send">search</button>
+    <div class="d-flex ms-auto">
         <a href="event-create" class="btn btn-primary">Create Data</a>
     </div>
+</div>
 
     <table class="table bg-light border px-3 evt">
         <thead>
