@@ -9,7 +9,7 @@
             <div class="mb-3">
                 <label for="email" class="form-label">Email :</label>
                 <br>
-                <input type="email" name="email" class="form-controll">
+                <input type="email" value="{{ Session::get('email') }}" name="email" class="form-controll">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password :</label>

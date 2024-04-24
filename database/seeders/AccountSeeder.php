@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AccountSeeder extends Seeder
 {
@@ -19,7 +20,7 @@ class AccountSeeder extends Seeder
         DB::table('account')->insert([
             'name' => 'Admin',
             'email' => 'koh@gmail.com',
-            'password' => '321'
+            'password' => Hash::make('321')
         ]);
     }
 }
