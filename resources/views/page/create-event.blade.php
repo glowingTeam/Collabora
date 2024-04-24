@@ -9,7 +9,7 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Name Event</label>
                 <br>
-                <input class="form-control form-control-sm" type="text" name="name_evnt" id="name" required aria-label=".form-control-sm">
+                <input class="form-control form-control-sm" type="string" name="name_event" id="name" required aria-label=".form-control-sm">
             </div>
 
             <div class="mb-3">
@@ -19,21 +19,12 @@
             </div>
 
             <div class="d-flex mb-3">
-                <form>
-                    <div class="row form-group">
-                        <label for="date" class="">Date</label>
-                        <div class="col-sm-7">
-                            <div class="input-group date" id="datepicker">
-                                <input type="text" class="form-control">
-                                <span class="input-group-append">
-                                    <span class="input-group-text bg-white d-block">
-                                        <i class="fa fa-calendar"></i>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
+                <div class="row form-group">
+                    <label for="date" class="">Date</label>
+                    <div class="col-sm-7">
+                        <input type="date" name="date" id="date" class="form-control">
                     </div>
-                </form>
+                </div>
             </div>
 
             <div class="mb-3">
@@ -44,7 +35,7 @@
 
             <div class="d-flex justify-content-center gap-2">
                 <button class="btn btn-success" type="submit">Create</button>
-                <button class="btn btn-danger" type="submit">Cancel</button>
+                <a href="/dashboard"> <button class="btn btn-danger">Cancel</button> </a>
             </div>
         </form>
     </div>

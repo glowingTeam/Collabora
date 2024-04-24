@@ -23,6 +23,12 @@ class EventController extends Controller
     }
 
     function store(Request $request) {
-        dd($request->all());
+        $event = new event;
+        $event->name_event = $request->name_event;
+        $event->location = $request->location;
+        $event->date = $request->date;
+        $event->description_event = $request->description_event;
+        $event->save();
+        return redirect('/event');
     }
 }
