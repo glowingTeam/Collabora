@@ -1,7 +1,12 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>this is login page</h1>
+<div class="d-flex"> 
+    <div>   
+        <h1>Hello, Colabora!</h1>
+        <p>keep connect with us, Please enter your account</p>
+        <img src="{{ asset('img/potret.png') }}" alt="Image">
+    </div>
     <div class="w-50 center border rounded px-3 py-3 mx-auto bg-light">
         <h1>Login</h1>
         <form action="page/login" method="POST">
@@ -22,5 +27,5 @@
             <a href="/register" class="center text-dark">Create Account</a>
         </form>
     </div>
-
+</div>
 @endsection
