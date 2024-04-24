@@ -4,18 +4,20 @@
 
 <div class="w-50 center border px-3 py-3 mx-auto bg-light p-3 ktk">
         <h1>Create Event</h1>
-        <form action="/create" method="POST">
+        <form action="event" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="controlInput" class="form-label">Name Event</label>
+                <label for="name" class="form-label">Name Event</label>
                 <br>
-                <input class="form-control form-control-sm" type="text" placeholder="name event" aria-label=".form-control-sm">
+                <input class="form-control form-control-sm" type="text" name="name_evnt" id="name" required aria-label=".form-control-sm">
             </div>
+
             <div class="mb-3">
-                <label for="password" class="form-label">location</label>
+                <label for="location" class="form-label">Location</label>
                 <br>
-                <input class="form-control form-control-sm" type="text" placeholder="location" aria-label=".form-control-sm">
+                <input class="form-control form-control-sm" type="text" name="location" id="location" required aria-label=".form-control-sm">
             </div>
+
             <div class="d-flex mb-3">
                 <form>
                     <div class="row form-group">
@@ -33,14 +35,16 @@
                     </div>
                 </form>
             </div>
+
             <div class="mb-3">
-                <label for="password" class="form-label">description</label>
+                <label for="description" class="form-label">Description Event</label>
                 <br>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" type="text" name="description_event" id="description" required rows="3"></textarea>
             </div>
+
             <div class="d-flex justify-content-center gap-2">
-                <button name="create" type="button" class="btn btn-success">create</button>
-                <button name="cancel" type="button" class="btn btn-danger">cancel</button>
+                <button class="btn btn-success" type="submit">Create</button>
+                <button class="btn btn-danger" type="submit">Cancel</button>
             </div>
         </form>
     </div>

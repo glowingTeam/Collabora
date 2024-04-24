@@ -9,4 +9,9 @@ class event extends Model
 {
     use HasFactory;
     protected $table = "event";
+
+    public function events() {
+        return $this->hasMany(Event::class, 'id'. 'id');
+    }
+
 }

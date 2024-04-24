@@ -23,8 +23,12 @@ use App\Http\Controllers\SessionController;
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // });
+
+//Event
 Route::get('event', [EventController::class, 'index']);
 Route::get('event/{id}', [EventController::class, 'detail'])->where('id', '[0-9]+');
+Route::get('event-create', [EventController::class, 'create']);
+Route::post('/event', [EventController::class, 'login']);
 
 Route::get('/', [PageController::class, 'dashboard']);
 Route::get('/create', [PageController::class, 'create']);

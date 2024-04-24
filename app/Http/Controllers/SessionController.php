@@ -74,7 +74,7 @@ class SessionController extends Controller
         if (Auth::attempt($infologin)) {
             return redirect('event')->with('success', 'Berhasisl login');
         }else{
-            return redirect('sesi')->withErrors('Username dan passwword yang dimasukan tidak valiis')
+            return redirect('sesi')->withErrors('Username dan passwword yang dimasukan tidak valiis');
         }
     }
 }

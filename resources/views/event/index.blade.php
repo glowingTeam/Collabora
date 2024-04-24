@@ -1,6 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
+
+    <div class="my-5">
+        <a href="event-create" class="btn btn-primary">Create Data</a>
+    </div>
+
     <table class="table bg-light border px-3 evt">
         <thead>
             <tr>
