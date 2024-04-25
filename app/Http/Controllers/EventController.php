@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\event;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     //
-    function index(){
-        $data = event::all();
-        return view('event/index')->with('data', $data);
+    function index(Request $request){
+        $event = Event::all();
+        $search = $request->search;
+
+        $event = event::where('name_event', 'LIKE', '%'.$search.'%')->get();
+        return view('event/index', ['eventList' => $event]);
     }
 
     function detail($id){
