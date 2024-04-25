@@ -1,13 +1,21 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="d-flex"> 
+<div class="d-flex">
+    <style>
+        
+    </style> 
     <div>   
+        <br>
+        <br>
         <h1>Hello, Colabora!</h1>
         <p>keep connect with us, Please enter your account</p>
         <img src="{{ asset('img/potret.png') }}" alt="Image">
     </div>
     <div class="w-50 center border rounded px-3 py-3 mx-auto bg-light">
+        <br>
+        <br>
+        <br>
         <h1>Login</h1>
         <form action="page/login" method="POST">
             @csrf

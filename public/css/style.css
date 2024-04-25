@@ -7,7 +7,7 @@ body {
 
 .mburi{
     background-color: #E8D8C4;
-    height: 100%;
+    
 }
 
 .ktk{
@@ -21,3 +21,167 @@ body {
 .flex-item {
     margin-right: 10px; /* Adjust as needed */
 }
+
+.card-container .card-body {
+    display: flex;
+    justify-content: center;
+    /*   Maksimum lebar card */
+    /* border: 1px solid #ccc; Menambahkan border */
+    border-radius: 5px; /* Memberikan sudut border */
+     /* Memberikan jarak antara card */
+    box-sizing: border-box; /* Memastikan lebar dan padding termasuk dalam total lebar */
+}   
+
+.card:hover {
+    background-color: #C7B7A3;
+    /* color: #222831; */
+}
+
+.h2{
+    width: 20rem;
+    float: left;
+    clear: both; /* Membersihkan float */
+    margin-bottom: 20px; /* Memberikan jarak antara card */
+}
+
+.title {
+    display: inline-block; /* Menjadikan elemen lebar sesuai konten */
+    width: auto; /* Menghapus lebar yang sebelumnya diatur */
+    margin: 0 auto; /* Mengatur elemen ke tengah */
+    border: 1px solid #ccc; /* Memberikan border */
+    border-radius: 5px; /* Memberikan sudut border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Menambahkan shadow */
+    text-align: left; /* Mengatur teks ke tengah */
+    padding: 5px; /* Memberikan padding pada isi card */
+    /* background-color: #222831; Memberikan warna latar belakang */
+    color: #222831; /* Memberikan warna teks */
+    width: 100%; /* Memperluas elemen ke lebar halaman */
+    transition: background-color 0.3s, color 0.3s; /* Efek transisi hover */
+}
+
+.title:hover {
+    background-color: #76ABAE; /* Warna latar belakang saat dihover */
+    color: #fff; /* Warna teks saat dihover */
+}
+
+.bungkus{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image{
+    position: relative;
+}
+
+img {
+    max-width: 100%; /* Maksimum lebar gambar adalah lebar parent */
+    height: auto; /* Membuat gambar tetap proporsional */
+    display: block; /* Membuat gambar menjadi blok */
+    margin: 0 auto; /* Mengatur margin atas dan bawah menjadi auto untuk memusatkan gambar secara horizontal */
+    /* position: relative; */
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background:rgba(0, 0, 0, .2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0,6s;
+}
+
+.content:hover{
+    opacity: 1;
+}
+
+.content h1{
+    font-size: 55px;
+    color: #C7B7A3;
+    margin-bottom: 15px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.content > *{
+    transform:translateY(25px);
+    transition: transform 0.6s;
+}
+
+.content:hover > *{
+    transform:translateY(0px);
+}
+
+.button {
+    display: inline-block; /* Membuat tombol menjadi inline block */
+    padding: 10px 20px; /* Memberikan padding pada tombol */
+    font-size: 16px; /* Mengatur ukuran font */
+    font-weight: bold; /* Memberikan ketebalan font */
+    text-align: center; /* Mengatur teks ke tengah */
+    text-decoration: none; /* Menghapus dekorasi teks */
+    color: #E8D8C4;
+    background-color:#fff; /* Warna latar belakang */
+    border: none; /* Menghapus border */
+    border-radius: 5px; /* Memberikan sudut border */
+    cursor: pointer; /* Mengubah kursor menjadi tangan saat dihover */
+    transition: background-color 0.3s; /* Efek transisi saat dihover */
+}
+
+.button:hover {
+    background-color: #E8D8C4; /* Warna latar belakang saat dihover */
+}
+
+.button:focus {
+    outline: none; /* Menghilangkan outline saat tombol mendapatkan fokus */
+}
+
+.footer {
+    background-color: #333; /* Warna latar belakang footer */
+    color: #fff; /* Warna teks footer */
+    padding: 50px 0; /* Padding atas dan bawah */
+}
+
+.footer h5 {
+    color: #fff; /* Warna teks judul */
+}
+
+.footer p {
+    color: #ccc; /* Warna teks isi */
+    font-size: 14px; /* Ukuran teks isi */
+}
+
+.footer ul {
+    list-style: none; /* Menghapus bullet list */
+    padding: 0; /* Menghapus padding list */
+}
+
+.footer ul li {
+    margin-bottom: 10px; /* Jarak antar item list */
+}
+
+.social-icons {
+    list-style: none; /* Menghapus bullet list */
+    padding: 0; /* Menghapus padding list */
+}
+
+.social-icons li {
+    display: inline-block; /* Membuat ikon media sosial berbaris */
+    margin-right: 10px; /* Jarak antar ikon media sosial */
+}
+
+.social-icons li a {
+    color: #fff; /* Warna ikon media sosial */
+    font-size: 20px; /* Ukuran ikon media sosial */
+    transition: color 0.3s; /* Efek transisi warna */
+}
+
+.social-icons li a:hover {
+    color: #007bff; /* Warna ikon media sosial saat dihover */
+}
+
+
