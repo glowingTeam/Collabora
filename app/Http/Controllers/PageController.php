@@ -12,7 +12,7 @@ class PageController extends Controller
     }
 
     function event() {
-        return view("page/event");
+        return view("event/index");
     }
 
     function create() {

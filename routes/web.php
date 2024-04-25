@@ -25,7 +25,7 @@ use App\Http\Controllers\SessionController;
 // });
 
 //Event
-Route::get('event', [EventController::class, 'index']);
+Route::get('event', [EventController::class, 'search']);
 Route::get('event/{id}', [EventController::class, 'detail'])->where('id', '[0-9]+');
 Route::get('event-create', [EventController::class, 'create']);
 Route::post('/event', [EventController::class, 'store']);
@@ -44,4 +44,4 @@ Route::get('/page/register', [SessionController::class, 'register']);
 Route::post('/page/register', [SessionController::class, 'createAcc']);
 
 
-
+Route::get('/admin/manage-event', [EventController::class, 'index']);

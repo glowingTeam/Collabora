@@ -8,15 +8,21 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
     //
-    function index(Request $request){
+    function index() {
+        $event = Event::all();
+        return view('event/index', ['eventList' => $event]);
+        // $search = $request->search;
+        // $event = event::where('name_event', 'LIKE', '%'.$search.'%')->get();
+    }
+
+    function search(Request $request) {
         $event = Event::all();
         $search = $request->search;
-
         $event = event::where('name_event', 'LIKE', '%'.$search.'%')->get();
         return view('event/index', ['eventList' => $event]);
     }
 
-    function detail($id){
+    function detail($id) {
         return "<h1>Ini event dari controller dengan ID $id</h1>";
     }
 
