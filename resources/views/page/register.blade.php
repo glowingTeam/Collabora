@@ -4,27 +4,28 @@
     <h1>this is register page</h1>
     <div class="w-50 center border rounded px-3 py-3 mx-auto bg-light">
         <h1>Register</h1>
-        <form action="/page/register" method="POST">
+        <form action="/account" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name :</label>
-                <br>
-                <input type="text" name="name" value="{{ Session::get('name') }}" class="form-controll">
+                <input class="form-controll form-control-sm" type="text" name="name" id="name">
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email :</label>
-                <br>
-                <input type="email" name="email" value="{{Session::get('email') }}" class="form-controll">
+                <input class="form-controll form-control-sm" type="email" name="email" id="email">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password :</label>
-                <br>
-                <input type="password" name="password" class="form-controll">
+                <input class="form-controll form-control-sm" type="password" name="password" id="password">
+            </div>
+            <div class="mb-3">
+                <label for="passwordconfirm" class="form-label">Confirm Password :</label>
+                <input class="form-controll form-control-sm" type="password" name="passwordconfirm" id="passwordconfirm">
             </div>
             <div class="mb-3 d-grid">
-                <button name="submit" type="submit" class="btn btn-dark">Create Account</button>
+                <button class="btn btn-dark" type="submit">Create Account</button>
             </div>
-            <a href="/login" class="center text-dark">Already Have An Account?</a>
+            <a href="/account" class="center text-dark">Already Have An Account?</a>
         </form>
     </div>
 

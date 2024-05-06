@@ -20,7 +20,7 @@
     <div class="mburi">
     @include('components.navbar')
 
-    <div class="container py-5">
+    <div class="container py-5 ">
         @yield('content')
     </div>
 

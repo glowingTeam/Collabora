@@ -9,7 +9,7 @@
         </form>
 
         <div class="d-flex ms-auto">
-            <a href="event-create" class="btn btn-primary">Create Data</a>
+            <a href="event/create" class="btn btn-primary">Create Data</a>
         </div>
     </div>
 
@@ -33,8 +33,8 @@
                     <td>{{ $item->description_event }}</td>
                     <td>
                         {{-- <a class="btn btn-secondary btn-sm" href=''>Detail</a> --}}
-                        <a class="btn btn-secondary btn-sm" href=''>Edit</a>
-                        <a class="btn btn-secondary btn-sm" href=''>Delete</a>
+                        <a class="btn btn-warning btn-sm" href=''>Edit</a>
+                        <a class="btn btn-danger btn-sm" href=''>Delete</a>
                     </td>
                 </tr>
             @endforeach 

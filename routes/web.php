@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PageController;
@@ -20,28 +21,31 @@ use App\Http\Controllers\SessionController;
 //     return view('welcome');
 // });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// });
+Route::get('/dashboard', function () {
+    return view('page/dashboard');
+});
 
 //Event
-Route::get('event', [EventController::class, 'search']);
-Route::get('event/{id}', [EventController::class, 'detail'])->where('id', '[0-9]+');
-Route::get('event-create', [EventController::class, 'create']);
-Route::post('/event', [EventController::class, 'store']);
+Route::resource('/event', EventController::class);
+Route::get('/event', [EventController::class, 'search']);
+// Route::get('event/{id}', [EventController::class, 'detail'])->where('id', '[0-9]+');
+// Route::get('event-create', [EventController::class, 'create']);
+// Route::post('/event', [EventController::class, 'store']);
 
-Route::get('/', [PageController::class, 'dashboard']);
-Route::get('/create', [PageController::class, 'create']);
-Route::get('/login', [PageController::class, 'login']);
-Route::get('/register', [PageController::class, 'register']);
+// Route::get('/', [PageController::class, 'dashboard']);
+// Route::get('/create', [PageController::class, 'create']);
+// Route::get('/login', [PageController::class, 'login']);
+// Route::get('/register', [PageController::class, 'register']);
+
+Route::resource('/account', AccountController::class);
+Route::post('/masuk', [SessionController::class, 'masuk']);
 
 
-
-Route::get('/page', [SessionController::class, 'index']);
-Route::post('/page/login', [SessionController::class, 'masuk']);
-// Route::get('/page/register', [SessionController::class, 'logout']);
-Route::get('/page/register', [SessionController::class, 'register']);
-Route::post('/page/register', [SessionController::class, 'createAcc']);
+// Route::get('/page', [SessionController::class, 'index']);
+// Route::post('/login', [SessionController::class, 'masuk']);
+// // Route::get('/page/register', [SessionController::class, 'logout']);
+// Route::get('/page/register', [SessionController::class, 'register']);
+// Route::post('/page/register', [SessionController::class, 'createAcc']);
 
 
 Route::get('/admin/manage-event', [EventController::class, 'index']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use app\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,14 +13,13 @@ use Illuminate\Support\Facades\Session;
 class SessionController extends Controller
 {
     //
-    function dashboard() {
-        return view("page/dashboard");
-    }
     function index() {
-        return view("page/login");
+        $account = Account::all();
+        return view('page/login', ['accountList' => $account]);
     }
 
     function masuk(Request $request) {
+        try{
         Session::flash('email', $request->email);
         $request->validate([
             'email'=>'required',
@@ -28,29 +28,47 @@ class SessionController extends Controller
             'email.required' => 'Email wajib diisi',
             'password.required' => 'Password wajib diisi'
         ]);
-
+        $password = bcrypt($request->password);
         $datalogin = [
             'email' => $request->email,
             'password' => $request->password
         ];
-
+        $data = Account::where('email', $request->email)->firstOrFail();
         if(Auth::attempt($datalogin)) {
+            // dd($datalogin);
             return redirect('/dashboard')->with('success', 'berhasil login');
         } else {
-            return redirect('page')->withErrors('Email dan Password yang dimasukkan tidak valid');
+            dd($datalogin);
+            return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');
         }
+        // dd($data,$password);
+        // if($data->password==$request->password){
+        //     return redirect('/dashboard')->with('success', 'berhasil login');
+        // }else{
+        //     return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');
+        // }
+        }catch(\Exception $e){
+            dd($e);
+        }
+    }
+    function login(Request $request)
+    {
+        if (session()->has('account')) {
+            session()->pull('account');
+        }
+        return redirect('/dashboard');
     }
 
     function logout() {
         Auth::logout();
-        return redirect('page')->with('succes', 'Berhasil Logout');
+        return redirect('/account')->with('succes', 'Berhasil Logout');
     }
 
     //register
-    function register() {
+    function create() {
         return view("page/register");
     }
-    function createAcc(Request $request){
+    function register(Request $request){
         Session::flash('name', $request->name);
         Session::flash('email', $request->email);
         $request->validate([
@@ -69,21 +87,30 @@ class SessionController extends Controller
         $data = [
             'name'=>$request->name,
             'email'=>$request->email,
-            'password'=>Hash::make($request->password)
+            'password'=>$request->password
         ];
-        User::createAcc($data);
+
+        
+        $data = new User;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->password = $request->password;
+        $data->save();
+        
 
         $infologin = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
-        if (Auth::attempt($infologin)) {
-            // return redirect('dashboard')->with('success', 'Berhasil login');
-            return 'sukses';
-        }else{
-            // return redirect('page')->withErrors('Username dan passwword yang dimasukan tidak valiis');
-            return 'gagal';
-        }
+        return redirect('/page');
+
+        // if (Auth::attempt($infologin)) {
+        //     // return redirect('dashboard')->with('success', 'Berhasil login');
+        //     return 'sukses';
+        // }else{
+        //     // return redirect('page')->withErrors('Username dan passwword yang dimasukan tidak valiis');
+        //     return 'gagal';
+        // }
     }
 }

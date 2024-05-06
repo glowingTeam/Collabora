@@ -7,7 +7,7 @@
 
         <form action="" class="d-flex">
             <input class="form-control mme 2" type="search" placeholder="search">
-            <button class="btn bg-dark text-white" type="send">search</button>
+            <button class="btn bg-dark text-white" type="send">Search</button>
         </form>
         <br>
         <div class="bungkus">

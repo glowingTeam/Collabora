@@ -6,11 +6,10 @@
       </button>
       <div class="collapse  navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link text-light" aria-current="page" href="/">Dashboard</a>
-          <a class="nav-link text-light" href="../event">Event</a>
-          <a class="nav-link text-light" href="/create">create</a>
+          <a class="nav-link text-light" aria-current="page" href="/dashboard">Dashboard</a>
+          <a class="nav-link text-light" href="/event">Event</a>
           <div class="navbar-nav ml-auto">
-            <a class="nav-link text-light btn btn-light text-dark"  href="../login">Login</a>
+            <a class="nav-link text-light btn btn-light text-dark"  href="/account">Login</a>
           </div>
           {{-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> --}}
         </div>

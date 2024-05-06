@@ -7,25 +7,33 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     //
-    function dashboard() {
-        return view("page/dashboard");
-    }
+    // function dashboard() {
+    //     return view("page/dashboard");
+    // }
 
-    function event() {
-        return view("event/index");
-    }
+    // function index() {
+    //     return view("page/dashboard");
+    // }
 
-    function create() {
-        return view("page/create");
-    }
+    // function masuk() {
+    //     return view("page/login");
+    // }
 
-    function login() {
-        return view("page/login");
-    }
+    // function login() {
+    //     return view("page/login");
+    // }
 
-    function register() {
-        return view("page/register");
-    }
+    // function event() {
+    //     return view("event/index");
+    // }
+
+    // function create() {
+    //     return view("page/create");
+    // }
+
+    // function register() {
+    //     return view("page/register");
+    // }
 
 
 }

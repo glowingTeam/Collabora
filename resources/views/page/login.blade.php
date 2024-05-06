@@ -17,7 +17,7 @@
         <br>
         <br>
         <h1>Login</h1>
-        <form action="page/login" method="POST">
+        <form action="/masuk" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="email" class="form-label">Email :</label>
@@ -32,7 +32,7 @@
             <div class="mb-3 d-grid">
                 <button name="submit" type="submit" class="btn btn-dark">Login</button>
             </div>
-            <a href="/register" class="center text-dark">Create Account</a>
+            <a href="account/create" class="center text-dark">Create Account</a>
         </form>
     </div>
 </div>
