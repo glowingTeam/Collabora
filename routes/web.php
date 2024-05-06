@@ -21,6 +21,9 @@ use App\Http\Controllers\SessionController;
 //     return view('welcome');
 // });
 
+// Route::get('/admin', function () {
+//     return view('page/admin');
+// });
 Route::get('/dashboard', function () {
     return view('page/dashboard');
 });
@@ -49,3 +52,4 @@ Route::post('/masuk', [SessionController::class, 'masuk']);
 
 
 Route::get('/admin/manage-event', [EventController::class, 'index']);
+Route::get('/admin/manage-account', [AccountController::class, 'manage']);

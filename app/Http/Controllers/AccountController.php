@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -13,9 +14,14 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    function index()
     {
-        return view('/page/login');
+        return view('page/login');
+    }
+
+    function manage(){
+        $account = Account::all();
+        return view('/admin/manage-account', ['accountList' => $account]);
     }
 
     /**

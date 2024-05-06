@@ -8,6 +8,21 @@
         <div class="navbar-nav">
           <a class="nav-link text-light" aria-current="page" href="/dashboard">Dashboard</a>
           <a class="nav-link text-light" href="/event">Event</a>
+
+          <div class="dropdown ">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  Manage
+                </button>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="/admin/manage-event">Manage Event</a></li>
+                  <li><a class="dropdown-item" href="/admin/manage-account">Manage Account</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
           <div class="navbar-nav ml-auto">
             <a class="nav-link text-light btn btn-light text-dark"  href="/account">Login</a>
           </div>

@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Account as Authenticatable;
 
-class Account extends Authenticatable
+class Account extends Model
 {
     use HasFactory;
 
+    
     protected $guarded = [
         'id'
     ];
