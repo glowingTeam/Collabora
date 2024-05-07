@@ -22,10 +22,6 @@ class EventController extends Controller
         return view('event/index', ['eventList' => $event]);
     }
 
-    function detail($id) {
-        return "<h1>Ini event dari controller dengan ID $id</h1>";
-    }
-
     function create() {
         $class = event::all();
         return view ('page/create-event', ['class' => $class]);
@@ -38,6 +34,28 @@ class EventController extends Controller
         $event->date = $request->date;
         $event->description_event = $request->description_event;
         $event->save();
+        return redirect('/event');
+    }
+
+    function show($id) {
+        $event = Event::find($id);
+        return view('page/event-show', [
+            'eventList' => $event
+        ]);
+    }
+
+    function edit(Event $event) {
+        return view('page/event-edit', [
+            'eventList' => $event
+        ]);
+    }
+
+    function update() {
+        
+    }
+
+    function destroy(Event $event) {
+        $event->delete();
         return redirect('/event');
     }
 }

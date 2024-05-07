@@ -32,9 +32,17 @@
                     <td>{{ $item->date }}</td>
                     <td>{{ $item->description_event }}</td>
                     <td>
-                        {{-- <a class="btn btn-secondary btn-sm" href=''>Detail</a> --}}
-                        <a class="btn btn-warning btn-sm" href=''>Edit</a>
-                        <a class="btn btn-danger btn-sm" href=''>Delete</a>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-secondary btn-sm" href="/event/{{ $item->id }}">Show</a>
+                            <a class="btn btn-warning btn-sm" href="/event/{{ $item->id }}/edit">Edit</a>
+    
+                            <form action="/event/{{ $item->id }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger" type="submit" onclick="return confirm ('Apakah anda yakin untuk menghapus event ini?')">Delete</button>
+                            </form>
+                        </div>
+                        {{-- <a class="btn btn-danger btn-sm" href=''>Delete</a> --}}
                     </td>
                 </tr>
             @endforeach 
