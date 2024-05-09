@@ -78,9 +78,11 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Account $account)
     {
-        //
+        return view('page/account-edit', [
+            'accountList' => $account
+        ]);
     }
 
     /**
@@ -90,9 +92,21 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Account $account)
     {
-        //
+        $validate = $request([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $data = Account::findOrFail($account);
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->password = $request->input('password');
+
+        $data->save();
+        return redirect('/admin/manage-account');
     }
 
     /**
@@ -103,6 +117,7 @@ class AccountController extends Controller
      */
     public function destroy(Account $account)
     {
-        
+        $account->delete();
+        return redirect('/admin/manage-account');
     }
 }

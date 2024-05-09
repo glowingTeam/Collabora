@@ -1,13 +1,9 @@
 @extends('layouts.main')
 @section('content')
 
-        {{-- fungsi search --}}
-    {{-- <div class="d-flex mb-4">
-        <form action="" method="GET" class="d-flex col-4">
-            <input class="form-control mme 2 flex-item" type="text" name="search" placeholder="Search Event">
-            <button class="btn bg-dark text-white flex-item" type="submit">Search</button>
-        </form>
-    </div> --}}
+    <div class="d-flex ms-auto">
+        <a href="../account/create" class="btn btn-primary">Create Account</a>
+    </div>
 
     <table class="table bg-light border px-3 evt">
         <thead>
@@ -24,9 +20,15 @@
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->email }}</td>
                     <td>
+                        <div class="d-flex gap-2">
+                            <a class="btn btn-warning btn-sm" href="/account/{{ $item->id }}">Edit</a>
+                            <form action="/account/{{ $item->id }}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger" type="submit" onclick="return confirm ('Apakah anda yakin untuk menghapus account ini?')">Delete</button>
+                            </form>
+                        </div>
                         {{-- <a class="btn btn-secondary btn-sm" href=''>Detail</a> --}}
-                        <a class="btn btn-warning btn-sm" href=''>Edit</a>
-                        <a class="btn btn-danger btn-sm" href=''>Delete</a>
                     </td>
                 </tr>
             @endforeach 
