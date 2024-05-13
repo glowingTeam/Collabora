@@ -36,4 +36,9 @@ Route::post('/masuk', [SessionController::class, 'masuk']);
 
 
 Route::get('/admin/manage-event', [EventController::class, 'index']);
+
 Route::get('/admin/manage-account', [AccountController::class, 'manage']);
+Route::get('/admin/manage-account/{account}/edit', [AccountController::class, 'edit'])->name('account.edit');
+Route::put('/admin/manage-account/{account}', [AccountController::class, 'update'])->name('account.update');
+
+

@@ -81,7 +81,7 @@ class AccountController extends Controller
     public function edit(Account $account)
     {
         return view('page/account-edit', [
-            'accountList' => $account
+            'account' => $account
         ]);
     }
 
@@ -94,18 +94,17 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
-        $validate = $request([
+        $validateData = $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        $data = Account::findOrFail($account);
-        $data->name = $request->input('name');
-        $data->email = $request->input('email');
-        $data->password = $request->input('password');
+        $account->name = $validateData['name'];
+        $account->email = $validateData['email'];
+        $account->password = bcrypt($validateData['password']);
 
-        $data->save();
+        $account->save();
         return redirect('/admin/manage-account');
     }
 

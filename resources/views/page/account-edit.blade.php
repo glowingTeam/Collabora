@@ -4,7 +4,7 @@
 
 <div class="w-50 center border px-3 py-3 mx-auto bg-light p-3 ktk">
         <h1>Edit Account</h1>
-        <form action="/account/{{ $accountList->id }}" method="GET" enctype="multipart/form-data">
+        <form action="{{ route('manage-account.update', $accountList) }}" method="GET" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="mb-3">
