@@ -14,7 +14,7 @@
     /* border-radius: 25px 25px 0 25px; */
 }
 
-.slide-container{
+.slide-container{   
     max-width: 1120px;
     width: 100%;
     /* background-color: grey; */
@@ -22,24 +22,40 @@
 }
 
 .slide-content{
+    height: 20px;
     margin: 0 40px;
     border-radius: 25px 25px 0 25px;
 }
 
 .card{
+    display: grid;
+    justify-content: center;
+    margin-right: 30px;
+    margin-top: 15px;
     width: 320px;
     /* border-radius: 50px; */
     background-color: white;
     border-radius: 25px 25px 0px 25px;
 }
 
+.card-wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
 .image-content,
 .card-content{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    justify-content: center;
     align-items: center;
     padding: 10px 14px;
     border-radius: 25px 25px 0 25px;
+}
+
+.card-content .name_event {
+    font-weight: bold;
 }
 
 .image-content{
