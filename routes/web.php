@@ -17,9 +17,9 @@ use App\Http\Controllers\SessionController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 Route::get('/dashboard', function () {

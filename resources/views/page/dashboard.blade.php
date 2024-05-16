@@ -1,70 +1,44 @@
-@extends('layouts.main')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
 
+    <!-- Link -->
+    <link rel="stylesheet" href="{{ '../css/dashboard.css' }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+@extends('layouts.main')
 @section('content')
 
-<div>
-    <div class="container flex text-center bs-secondary-bg">
-
-        <form action="" class="d-flex">
-            <input class="form-control mme 2" type="search" placeholder="search">
-            <button class="btn bg-dark text-white" type="send">Search</button>
-        </form>
-        <br>
-        <div class="bungkus">
-            <div class="image">
-                <img src="{{ asset('img/potret1.png') }}" alt="Image">
-                <div class="content">
-                    <h1>Upcoming Events</h1>
-                </div>
-            </div>
-        </div>
-        <br>    
-        <div class="card-container">
+<div class="slide-container">
+    <div class="slide-content">
+        <div class="card-wrapper">
             <div class="card">
-                <br>
-            <div class="h3"><h2>Goal SGDS</h3></div>
-            <div class="alamat"><h6 class="card-subtitle mb-2 text-body-secondary">JL. Jalan  sama kamu</h6></div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <div class="link">
-                    <button class="button"><a href="#" class="card-link">See More</a></button>
-                </div>
-                <br>
-            </div>
+                <div class="image-content">
+                    <span class="overlay">  </span>
 
-            <br>
-            <div class="card-container">
-            <div class="card">
-                <br>
-            <div class="h3"><h2>Goal SGDS</h3></div>
-            <div class="alamat"><h6 class="card-subtitle mb-2 text-body-secondary">JL. Jalan  sama kamu</h6></div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="card-image">
+                            <img src="img/potret.png" alt="" class="card-img">
+                        </div>
                 </div>
-                <div class="link">
-                    <button class="button"><a href="#" class="card-link">See More</a></button>
-                </div>
-                <br>
-            </div>
 
-            <br>
-            <div class="card-container">
-            <div class="card">
-                <br>
-            <div class="h3"><h2>Goal SGDS</h3></div>
-            <div class="alamat"><h6 class="card-subtitle mb-2 text-body-secondary">JL. Jalan  sama kamu</h6></div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card-content">
+                    <h2 class="name">Event</h2>
+                    <h2 class="name"></h2>
+                    <p class="description">Halo ini merupakan event pertama</p>
+
+                    <button class="button">View More</button>
                 </div>
-                <div class="link">
-                    <button class="button"><a href="#" class="card-link">See More</a></button>
-                </div>
-                <br>
+
             </div>
         </div>
     </div>
 </div>
 
-<p>@colabora copyright</p>
 @endsection
+</body>
+</html>

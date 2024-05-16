@@ -23,9 +23,9 @@
             </ul>
           </div>
 
-          <div class="navbar-nav ml-auto">
+          <!-- <div class="navbar-nav ml-auto">
             <a class="nav-link text-light btn btn-light text-dark"  href="/account">Login</a>
-          </div>
+          </div> -->
           {{-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> --}}
         </div>
       </div>
