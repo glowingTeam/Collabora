@@ -21,7 +21,7 @@
                     <td>{{ $item->email }}</td>
                     <td>
                         <div class="d-flex gap-2">
-                            <a class="btn btn-warning btn-sm" href="/account/{{ $item->id }}">Edit</a>
+                            <a class="btn btn-warning btn-sm" href="{{url('account/'.$item->id.'/edit')}}">Edit</a>
                             <form action="/account/{{ $item->id }}" method="POST">
                                 @csrf
                                 @method('delete')

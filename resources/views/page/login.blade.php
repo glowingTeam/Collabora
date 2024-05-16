@@ -31,6 +31,9 @@
             href="/account/create">Register</a></p>
          </div>
          </form>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
     </div>
 </div>
 </body>

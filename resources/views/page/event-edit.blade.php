@@ -31,8 +31,7 @@
             <div class="mb-3">
                 <label for="description" class="form-label">Description Event</label>
                 <br>
-                <textarea class="form-control" type="text" name="description_event" id="description"
-                value="{{ $eventList->description_event }}"></textarea>
+                <textarea class="form-control" type="text" name="description_event" id="description">{{ $eventList->description_event }}</textarea>
             </div>
 
             <div class="d-flex justify-content-center gap-2">
@@ -40,6 +39,9 @@
                 <a href="/event"> <button class="btn btn-danger">Cancel</button> </a>
             </div>
         </form>
+        @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
     </div>
 
     <script type="text/javascript">

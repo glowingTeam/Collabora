@@ -50,8 +50,20 @@ class EventController extends Controller
         ]);
     }
 
-    function update() {
-        
+    function update(Request $request, Event $event) {
+        $validateData = $request->validate([
+            'name_event' => 'required',
+            'location' => 'required',
+            'date' => 'required',
+            'description_event' => 'required'
+        ]);
+        // dd($validateData);
+        $event->name_event = $validateData['name_event'];
+        $event->location = $validateData['location'];
+        $event->date = $validateData['date'];
+        $event->description_event = $validateData['description_event'];
+        $event->save();
+        return redirect()->route('index');
     }
 
     function destroy(Event $event) {

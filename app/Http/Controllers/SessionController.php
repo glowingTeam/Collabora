@@ -34,11 +34,11 @@ class SessionController extends Controller
             'password' => $request->password
         ];
         $data = Account::where('email', $request->email)->firstOrFail();
-        if(Auth::attempt($datalogin)) {
+        if(($datalogin)) {
             // dd($datalogin);
             return redirect('/dashboard')->with('success', 'berhasil login');
         } else {
-            dd($datalogin);
+            // dd($datalogin);
             return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');
         }
         // dd($data,$password);

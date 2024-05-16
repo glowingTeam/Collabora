@@ -80,9 +80,7 @@ class AccountController extends Controller
      */
     public function edit(Account $account)
     {
-        return view('page/account-edit', [
-            'account' => $account
-        ]);
+        return view('page.account-edit', compact('account'));
     }
 
     /**
@@ -94,18 +92,20 @@ class AccountController extends Controller
      */
     public function update(Request $request, Account $account)
     {
+        
         $validateData = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required'
         ]);
-
+        // dd($validateData);
         $account->name = $validateData['name'];
         $account->email = $validateData['email'];
         $account->password = bcrypt($validateData['password']);
-
+        
+        
         $account->save();
-        return redirect('/admin/manage-account');
+        return redirect()->route('manage');
     }
 
     /**
