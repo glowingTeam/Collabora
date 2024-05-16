@@ -26,9 +26,15 @@
                 <td>{{ $item->date }}</td>
                 <td>{{ $item->description_event }}</td>
                 <td>
-                    {{-- <a class="btn btn-secondary btn-sm" href=''>Detail</a> --}}
-                    <a class="btn btn-secondary btn-sm" href=''>Edit</a>
-                    <a class="btn btn-secondary btn-sm" href=''>Delete</a>
+                    <div>
+                        <a class="btn btn-secondary btn-sm" href=''>Edit</a>
+                        <form action="/event/{{ $item->id }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-danger" type="submit" onclick="return confirm ('Apakah anda yakin untuk menghapus account ini?')">Delete</button>
+                        </form>
+                        {{-- <a class="btn btn-secondary btn-sm" href=''>Delete</a> --}}
+                    </div>
                 </td>
             </tr>
         @endforeach 

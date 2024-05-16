@@ -17,7 +17,8 @@
 <div class="slide-container">
     <div class="slide-content">
         <div class="card-wrapper">
-            <div class="card">
+            @foreach ($events as $event )
+            <div class="card ">
                 <div class="image-content">
                     <span class="overlay">  </span>
 
@@ -25,16 +26,18 @@
                             <img src="img/potret.png" alt="" class="card-img">
                         </div>
                 </div>
-
+                    
                 <div class="card-content">
-                    <h2 class="name">Event</h2>
-                    <h2 class="name"></h2>
-                    <p class="description">Halo ini merupakan event pertama</p>
-
+                    <h2 class="name_event">{{ $event->name_event }}</h2>
+                    <h2 class="location">{{ $event->location }}</h2>
+                    <h2 class="date">{{ $event->date }}</h2>
+                    <p class="description">{{ $event->description_event }}</p>
+                    
                     <button class="button">View More</button>
                 </div>
-
+                
             </div>
+            @endforeach
         </div>
     </div>
 </div>

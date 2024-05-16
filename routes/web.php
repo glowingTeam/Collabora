@@ -23,7 +23,8 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
-    return view('page/dashboard');
+    $events = \App\Models\event::all();
+    return view('page/dashboard',['events'=>$events]);
 });
 
 //Event
