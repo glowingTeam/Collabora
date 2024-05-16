@@ -29,8 +29,8 @@
                     
                 <div class="card-content">
                     <h2 class="name_event">{{ $event->name_event }}</h2>
-                    <h2 class="location">{{ $event->location }}</h2>
-                    <h2 class="date">{{ $event->date }}</h2>
+                    <h4 class="location">{{ $event->location }}</h4>
+                    <h6 class="date">{{ $event->date }}</h6>
                     <p class="description">{{ $event->description_event }}</p>
                     
                     <button class="button">View More</button>
