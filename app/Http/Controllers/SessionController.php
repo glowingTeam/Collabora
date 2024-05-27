@@ -34,8 +34,9 @@ class SessionController extends Controller
             'password' => $request->password
         ];
         $data = Account::where('email', $request->email)->firstOrFail();
-        if(($datalogin)) {
+        if(Auth::attempt($datalogin)) {
             // dd($datalogin);
+            Auth::user();
             return redirect('/dashboard')->with('success', 'berhasil login');
         } else {
             // dd($datalogin);

@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     $events = \App\Models\event::all();
     return view('page/dashboard',['events'=>$events]);
-});
+})->middleware('isLogin');
 
 //Event
 Route::resource('/event', EventController::class);
