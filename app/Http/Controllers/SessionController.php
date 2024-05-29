@@ -9,46 +9,38 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
+// use Illuminate\Support\Facades\Hash;
+
 
 class SessionController extends Controller
 {
     //
-    function index() {
+    function index()
+    {
         $account = Account::all();
         return view('page/login', ['accountList' => $account]);
     }
 
-    function masuk(Request $request) {
-        try{
-        Session::flash('email', $request->email);
-        $request->validate([
-            'email'=>'required',
-            'password'=>'required'
-        ], [
-            'email.required' => 'Email wajib diisi',
-            'password.required' => 'Password wajib diisi'
-        ]);
-        $password = bcrypt($request->password);
-        $datalogin = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
-        $data = Account::where('email', $request->email)->firstOrFail();
-        if(Auth::attempt($datalogin)) {
-            // dd($datalogin);
-            Auth::user();
-            return redirect('/dashboard')->with('success', 'berhasil login');
-        } else {
-            // dd($datalogin);
-            return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');
-        }
-        // dd($data,$password);
-        // if($data->password==$request->password){
-        //     return redirect('/dashboard')->with('success', 'berhasil login');
-        // }else{
-        //     return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');
-        // }
-        }catch(\Exception $e){
+    function masuk(Request $request)
+    {
+        try {
+            // Session::flash('email', $request->email);
+            $request->validate([
+                'email' => 'required|email',
+                'password' => 'required'
+            ]);
+
+            $data = Account::where('email', $request->email)->firstOrFail();
+            // $hashedPassword = Hash::make($request->password);
+            // dd($hashedPassword);
+            if (Hash::check($request->password, $data->password)) {
+                // Auth::login($data);
+                // dd(Hash::check($request->password, $data->password));
+                return redirect('/dashboard')->with('success', 'berhasil login');
+            } else {
+                return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');
+            }
+        } catch (\Exception $e) {
             dd($e);
         }
     }
@@ -60,24 +52,27 @@ class SessionController extends Controller
         return redirect('/dashboard');
     }
 
-    function logout() {
+    function logout()
+    {
         Auth::logout();
-        return redirect('/account')->with('succes', 'Berhasil Logout');
+        return redirect('/')->with('succes', 'Berhasil Logout');
     }
 
     //register
-    function create() {
+    function create()
+    {
         return view("page/register");
     }
-    function register(Request $request){
+    function register(Request $request)
+    {
         Session::flash('name', $request->name);
         Session::flash('email', $request->email);
         $request->validate([
-            'name'=>'required',
-            'email'=>'required|email|unique:account',
-            'password'=>'required|min:6'
-        ],[
-            'name.required'=>'nama wajib diisi',
+            'name' => 'required',
+            'email' => 'required|email|unique:account',
+            'password' => 'required|min:6'
+        ], [
+            'name.required' => 'nama wajib diisi',
             'email.required' => 'email wajib diisi',
             'email.email' => 'silahkan memasukan email yang valid',
             'email.unique' => 'email sudah pernah digunakan, silahkan pilih email yang lain',
@@ -86,18 +81,18 @@ class SessionController extends Controller
         ]);
 
         $data = [
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>$request->password
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password
         ];
 
-        
+
         $data = new User;
         $data->name = $request->name;
         $data->email = $request->email;
         $data->password = $request->password;
         $data->save();
-        
+
 
         $infologin = [
             'email' => $request->email,

@@ -4,11 +4,10 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse  navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse  navbar-collapse " id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link text-light" aria-current="page" href="/dashboard">Dashboard</a>
           <a class="nav-link text-light" href="/event">Event</a>
-
           <div class="dropdown ">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
@@ -23,9 +22,9 @@
             </ul>
           </div>
 
-          <!-- <div class="navbar-nav ml-auto">
+          <div class="navbar-nav ml-auto">
             <a class="nav-link text-light btn btn-light text-dark"  href="/account">Login</a>
-          </div> -->
+          </div>
           {{-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> --}}
         </div>
       </div>

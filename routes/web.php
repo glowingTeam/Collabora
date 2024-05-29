@@ -24,8 +24,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $events = \App\Models\event::all();
-    return view('page/dashboard',['events'=>$events]);
-})->middleware('isLogin');
+    return view('page.dashboard',['events'=>$events]);
+});
 
 //Event
 Route::resource('/event', EventController::class);
@@ -40,7 +40,7 @@ Route::get('/admin/manage-event', [EventController::class, 'index'])->name('inde
 Route::get('/event/{event}', [EventController::class, 'update']);
 
 Route::get('/admin/manage-account', [AccountController::class, 'manage'])->name('manage');
-Route::get('account/{id}/edit', [AccountController::class, 'edit'])->name('account.edit');
-Route::put('/account/{account}', [AccountController::class, 'update'])->name('update');
+// Route::get('account/{id}/edit', [AccountController::class, 'edit'])->name('account.edit');
+// Route::put('/account/{account}', [AccountController::class, 'update'])->name('update');
 
 
