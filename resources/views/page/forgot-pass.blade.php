@@ -14,21 +14,21 @@
     <div class="wrapper">
          <form action="/account" method="POST">
          @csrf
-         <h1>Login</h1>
+         <h1>Forgot Password</h1>
 
          <div class="input-box">
-            <input type="email" value="{{ Session::get('email') }}" name="email" class="form-controll" placeholder="Email">
-        </div>
-
-         <div class="input-box">
-            <input type="password" name="password" class="form-controll" placeholder="Password">
+            <input type="password" name="password" class="form-controll" placeholder="New Password">
          </div>
 
-         <button type="submit" class="btn">Login</button>
+         <div class="input-box">
+            <input type="password" name="password" class="form-controll" placeholder="Confirm Password">
+         </div>
+
+         <button type="submit" class="btn">Submit</button>
 
          <div class="register-link">
-            <p>Remmember you're account? <a 
-            href="/account/create">Register</a></p>
+            <p>Remember you're account? <a 
+            href="/account">Login</a></p>
          </div>
          </form>
 

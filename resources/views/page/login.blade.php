@@ -28,11 +28,7 @@
 
         <div class="register-link">
             <p>Forgot <a 
-<<<<<<< HEAD
-            href="/account/forgot"> Password ?</a></p>
-=======
             href="/forgot-password"> Password ?</a></p>
->>>>>>> 220c1419bba1692de2f36b46105598aff0c45fa6
         </div>
 
          <div class="register-link">
