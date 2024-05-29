@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="wrapper">
-         <form action="/masuk" method="POST">
+         <form action="/account" method="POST">
          @csrf
          <h1>Login</h1>
 
@@ -32,9 +32,9 @@
          </div>
          </form>
 
-        @foreach ($errors->all() as $error)
+        {{-- @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
-        @endforeach
+        @endforeach --}}
     </div>
 </div>
 </body>

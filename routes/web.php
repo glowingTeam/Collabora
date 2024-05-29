@@ -35,8 +35,10 @@ Route::resource('/account', AccountController::class);
 Route::post('/masuk', [SessionController::class, 'masuk']);
 
 
-
-Route::get('/account/forgot', [AccountController::class, 'forgot']);
+Route::get('/forgot-password', function () {
+    return view('page.forgot-pass');
+});
+// Route::get('/account/forgot', [AccountController::class, 'forgot']);
 
 
 Route::get('/admin/manage-event', [EventController::class, 'index'])->name('index');
