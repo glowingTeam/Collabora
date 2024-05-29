@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Forgot Password</title>
 
     <!-- Link -->
     <link rel="stylesheet" href="{{ 'css/login.css' }}">
@@ -26,19 +26,10 @@
 
          <button type="submit" class="btn">Login</button>
 
-        <div class="register-link">
-            <p>Forgot <a 
-            href="../account/forgot"> Password ?</a></p>
-        </div>
-
          <div class="register-link">
-            <p>Don't have an account? <a 
+            <p>Remmember you're account? <a 
             href="/account/create">Register</a></p>
          </div>
-
-        
-
-        
          </form>
 
         @foreach ($errors->all() as $error)

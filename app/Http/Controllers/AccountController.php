@@ -119,4 +119,8 @@ class AccountController extends Controller
         $account->delete();
         return redirect('/admin/manage-account');
     }
+
+    public function forgot(){
+        return view('page.forgot-pass');
+    }
 }

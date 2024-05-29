@@ -12,7 +12,7 @@
             <a href="event/create" class="btn btn-primary">Create Data</a>
         </div>
     </div>
-
+    
     <table class="table bg-light border px-3 evt">
         <thead>
             <tr>
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
         {{-- Cuma coba ngeluarin data  --}}
-             @foreach ($eventList as $item)
+            @foreach ($eventList as $item)
                 <tr>
                     <td>{{ $item->name_event }}</td>
                     <td>{{ $item->location }}</td>
@@ -33,9 +33,8 @@
                     <td>{{ $item->description_event }}</td>
                     <td>
                         <div class="d-flex gap-2">
-                            <a class="btn btn-secondary btn-sm" href="/event/{{ $item->id }}">Show</a>
+                            <!-- <a class="btn btn-secondary btn-sm" href="/event/{{ $item->id }}">Show</a> -->
                             <a class="btn btn-warning btn-sm" href="/event/{{ $item->id }}/edit">Edit</a>
-    
                             <form action="/event/{{ $item->id }}" method="POST">
                                 @csrf
                                 @method('delete')

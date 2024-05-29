@@ -31,16 +31,18 @@ Route::get('/dashboard', function () {
 Route::resource('/event', EventController::class);
 Route::get('/event', [EventController::class, 'search']);
 
-
 Route::resource('/account', AccountController::class);
 Route::post('/masuk', [SessionController::class, 'masuk']);
+
+
+
+Route::get('/account/forgot', [AccountController::class, 'forgot']);
 
 
 Route::get('/admin/manage-event', [EventController::class, 'index'])->name('index');
 Route::get('/event/{event}', [EventController::class, 'update']);
 
 Route::get('/admin/manage-account', [AccountController::class, 'manage'])->name('manage');
-// Route::get('account/{id}/edit', [AccountController::class, 'edit'])->name('account.edit');
-// Route::put('/account/{account}', [AccountController::class, 'update'])->name('update');
+
 
 
