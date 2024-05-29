@@ -28,7 +28,7 @@
 
         <div class="register-link">
             <p>Forgot <a 
-            href="../account/forgot"> Password ?</a></p>
+            href="/forgot-password"> Password ?</a></p>
         </div>
 
          <div class="register-link">
