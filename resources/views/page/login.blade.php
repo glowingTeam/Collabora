@@ -31,10 +31,10 @@
             href="/forgot-password"> Password ?</a></p>
         </div>
 
-         <div class="register-link">
+        <div class="register-link">
             <p>Don't have an account? <a 
             href="/account/create">Register</a></p>
-         </div>
+        </div>
 
         
 

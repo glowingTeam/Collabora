@@ -55,7 +55,7 @@
                     <h6 class="date">{{ $event->date }}</h6>
                     <p class="description">{{ $event->description_event }}</p>
                     
-                    <button class="button">View More</button>
+                    <a href="/event/{{ $event->id }}"> <button class="button">View More</button> </a>
                 </div>
                 
             </div>
