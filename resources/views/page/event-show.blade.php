@@ -12,7 +12,7 @@
                 <h4 class="card-text">{{ $eventList->date }}</h4>
                 <h6 class="card-text">{{ $eventList->description_event }}</h6>
             </div>
-            <a href="/event" class="btn btn-primary">Kembali</a>
+            <a href="/dashboard" class="btn btn-primary">Kembali</a>
         </div>
     </div>
 </div>

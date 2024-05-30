@@ -14,11 +14,13 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // Menampilkan form login
     function index()
     {
         return view('page/login');
     }
 
+    // Menampilkan semua data account
     function manage(){
         $account = Account::all();
         return view('/admin/manage-account', ['accountList' => $account]);
@@ -29,6 +31,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // Menampilkan form register
     public function create()
     {
         return view('page/register');
@@ -40,6 +43,7 @@ class AccountController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    // Fungsional Register
     public function store(Request $request)
     {
         if ($request->password == $request->passwordconfirm) {
@@ -78,6 +82,7 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Menampilkan form edit
     public function edit(Account $account)
     {
         return view('page.account-edit', compact('account'));
@@ -90,6 +95,7 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Fungsional Edit
     public function update(Request $request, Account $account)
     {
         
@@ -114,12 +120,14 @@ class AccountController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    // Fungsional Delete
     public function destroy(Account $account)
     {
         $account->delete();
         return redirect('/admin/manage-account');
     }
 
+    // Menampilkan form forgot password
     public function forgot(){
         return view('page.forgot-pass');
     }

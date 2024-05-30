@@ -25,7 +25,6 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-link text-light btn btn-light text-dark"  href="/account">Login</a>
           </div>
-          {{-- <a class="nav-link disabled" aria-disabled="true">Disabled</a> --}}
         </div>
       </div>
     </div>

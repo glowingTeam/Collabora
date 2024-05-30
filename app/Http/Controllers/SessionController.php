@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Session;
 
 class SessionController extends Controller
 {
-    //
+    //Menampilkan form login
     function index()
     {
         $account = Account::all();
         return view('page/login', ['accountList' => $account]);
     }
 
+    // Fungsional Login
     function masuk(Request $request)
     {
         try {
@@ -52,17 +53,22 @@ class SessionController extends Controller
         return redirect('/dashboard');
     }
 
-    function logout()
+    // Fungsional Logout
+    public function logout()
     {
-        Auth::logout();
+        if (session()->has('account')) {
+            session()->flush();
+        }
         return redirect('/')->with('succes', 'Berhasil Logout');
     }
 
-    //register
+    //Menampilkan form register
     function create()
     {
         return view("page/register");
     }
+
+    // Fungsional Register
     function register(Request $request)
     {
         Session::flash('name', $request->name);

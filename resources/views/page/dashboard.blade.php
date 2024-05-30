@@ -34,9 +34,9 @@
             </div>
         </section>
 
-        <div class="judul1">
+        {{-- <div class="judul1">
                     <h2><b>List Volenteer</b></h2>
-        </div>
+        </div> --}}
         <div class="card-wrapper">
             @foreach ($events as $event )
             <div class="card ">
