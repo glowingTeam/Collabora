@@ -25,18 +25,14 @@ class SessionController extends Controller
     function masuk(Request $request)
     {
         try {
-            // Session::flash('email', $request->email);
+            Session::flash('email', $request->email);
             $request->validate([
                 'email' => 'required|email',
                 'password' => 'required'
             ]);
 
             $data = Account::where('email', $request->email)->firstOrFail();
-            // $hashedPassword = Hash::make($request->password);
-            // dd($hashedPassword);
             if (Hash::check($request->password, $data->password)) {
-                // Auth::login($data);
-                // dd(Hash::check($request->password, $data->password));
                 return redirect('/dashboard')->with('success', 'berhasil login');
             } else {
                 return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');

@@ -8,6 +8,7 @@
         <div class="navbar-nav">
           <a class="nav-link text-light" aria-current="page" href="/dashboard">Dashboard</a>
           <a class="nav-link text-light" href="/event">Event</a>
+          <a class="nav-link text-light" href="/volunteer">Volunteer</a>
           <div class="dropdown ">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
@@ -21,7 +22,6 @@
               </li>
             </ul>
           </div>
-
           <div class="navbar-nav ml-auto">
             <a class="nav-link text-light btn btn-light text-dark"  href="/account">Login</a>
           </div>
