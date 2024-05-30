@@ -320,9 +320,11 @@ body.blanding {
     border-radius: 100px 10px 100px 10px;
 }
 
-
-/* logggiiinnnn */
-
+.container-fluid {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+}
 
 
 
