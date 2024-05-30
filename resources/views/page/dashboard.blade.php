@@ -17,7 +17,7 @@
     <div class="slide-content">
         
         <div class="judul2">
-            <h1><b>Hi, it's Collabora</b></h1>
+            <h1><b>Hi, it's Collabora !</b></h1>
         </div>
         <section class="container">
             <div class="slide-wrapper">
@@ -45,7 +45,7 @@
                     <span class="overlay"> </span>
 
                         <div class="card-image">
-                            <img src="img/potret.png" alt="" class="card-img">
+                            <img src="img/potret3.jpg" alt="" class="card-img">
                         </div>
                 </div>
                     
