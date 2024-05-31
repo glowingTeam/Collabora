@@ -58,7 +58,67 @@
                     <h6 class="date">{{ $event->date }}</h6>
                     <p class="description">{{ $event->description_event }}</p>
                     
-                    <a href="/event/{{ $event->id }}"> <button class="button">View More</button> </a>
+                    <a href="/event/show/{{ $event->id }}"> <button class="button">View More</button></a>
+                    <button class="button" data-toggle="modal" data-target="#modalEventRegist">Volunteer</button>
+                    <div class="modal fade" id="modalEventRegist" tabindex="-1" role="dialog" aria-labelledby="modalEventRegistLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalEventRegistLabel">Registration Form</h5>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form name="formEventRegist" id="formEventRegist" action="/event_regist/addeventregist" method="post" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group row">
+                                            <label for="id" class="col-sm-4 col-form-label">Nama</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Masukan Nama Anda" value="">
+                                            </div>
+                                        </div>
+
+                                        <p>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-sm-4 col-form-label">Email</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="email" name="email" placeholder="Masukan Email Anda" value="">
+                                            </div>
+                                        </div>
+
+                                        <p>
+                                        <div class="form-group row">
+                                            <label for="birthdate" class="col-sm-4 col-form-label">Tanggal Lahir</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="Masukan Tanggal Lahir Anda">
+                                            </div>
+                                        </div>
+
+                                        <p>
+                                        <div class="form-group row">
+                                            <label for="phone" class="col-sm-4 col-form-label">HP</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="phone" name="phone" placeholder="Masukan Nomor Telepon Anda">
+                                            </div>
+                                        </div>
+
+                                        <p>
+                                        <div class="form-group row">
+                                            <label for="experience" class="col-sm-4 col-form-label">Pengalaman</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="experience" name="experience" placeholder="Masukkan Pengalaman Anda">
+                                            </div>
+                                        </div>
+
+                                        <p>
+                                        <div class="modal-footer">
+                                            <button type="button" name="tutup" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                            <button type="submit" name="eventRegist" class="btn btn-success">Register</button>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
             </div>
