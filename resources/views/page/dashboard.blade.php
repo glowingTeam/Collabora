@@ -35,7 +35,7 @@
         </section>
 
         <div class="judul1">
-                    <h2><b>List Volenteer</b></h2>
+                    <h2><b>List Volunteer</b></h2>
         </div>
         <div class="card-wrapper">
             @foreach ($events as $event )
@@ -55,7 +55,7 @@
                     <h6 class="date">{{ $event->date }}</h6>
                     <p class="description">{{ $event->description_event }}</p>
                     
-                    <a href="/event/{{ $event->id }}"> <button class="button">View More</button> </a>
+                    <a href="/event/show/{{ $event->id }}"> <button class="button">View More</button> </a>
                     <button class="button" data-toggle="modal" data-target="#modalEventRegist">Volunteer</button>
 
                     <div class="modal fade" id="modalEventRegist" tabindex="-1" role="dialog" aria-labelledby="modalEventRegistLabel" aria-hidden="true">

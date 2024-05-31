@@ -41,7 +41,7 @@ class EventController extends Controller
         $event = Event::find($id);
         return view('page/event-show', [
             'eventList' => $event
-        ]);
+        ]); 
     }
 
     function edit(Event $event) {
