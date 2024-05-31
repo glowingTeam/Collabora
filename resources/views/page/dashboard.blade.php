@@ -37,29 +37,30 @@
             </div>
         </section>
 
-        <!-- Desc -->
-        <br>
-        <div class="heading">
-            <h1><b>Upcoming Event</b></h1>
-            <p>Apakah Anda tertarik untuk mengembangkan keterampilan, memperluas 
-            jaringan profesional, dan berkontribusi pada komunitas teknologi?</p>
-        </div>
-       
-        <!-- End Desc -->
+        {{-- <div class="judul1">
+                    <h2><b>List Volenteer</b></h2>
+        </div> --}}
+        <div class="card-wrapper">
+            @foreach ($events as $event )
+            <div class="card ">
+                
+                <div class="image-content">
+                    <span class="overlay"> </span>
 
-        <!-- Card -->
-        <div class="card-container">
-        @foreach ($events as $event )
-        <div class="card">
-            <img src="img/foto2.jpg">
-            <div class="card-content">
-                <h1 class="name_event">{{ $event->name_event }}</h1>
-                <h6 class="location">{{ $event->location }}</h6>
-                <p class="date">Tanggal : {{ $event->date }}</p>
-                <p class="description">Deskripsi :
-                    <br>{{ $event->description_event }}</p>
-                <a href="/event/{{ $event->id }}" class="card-button">Read More</a>
-            </div>
+                        <div class="card-image">
+                            <img src="img/potret3.jpg" alt="" class="card-img">
+                        </div>
+                </div>
+                    
+                <div class="card-content">
+                    <h2 class="name_event">{{ $event->name_event }}</h2>
+                    <h4 class="location">{{ $event->location }}</h4>
+                    <h6 class="date">{{ $event->date }}</h6>
+                    <p class="description">{{ $event->description_event }}</p>
+                    
+                    <a href="/event/{{ $event->id }}"> <button class="button">View More</button> </a>
+                </div>
+                
             </div>
             @endforeach
        </div>

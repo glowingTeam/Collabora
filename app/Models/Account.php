@@ -4,12 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Account extends Authenticatable
 {
     use HasFactory;
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'foreign_key', 'other_key');
+    }
     
     protected $guarded = [
         'id'
