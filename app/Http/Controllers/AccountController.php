@@ -131,4 +131,5 @@ class AccountController extends Controller
     public function forgot(){
         return view('page.forgot-pass');
     }
+    
 }

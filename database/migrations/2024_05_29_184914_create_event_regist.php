@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('event_regist', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email');
-            $table->string('birthdate');
+            $table->unsignedBigInteger('account_id')->nullable();
+            $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
+            $table->string('experience');
             $table->string('phone');
-            $table->text('experience');
+            $table->unsignedBigInteger('event_id')->nullable();
+            $table->foreign('event_id')->references('id')->on('event')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -63,9 +63,13 @@ class Account extends Authenticatable
         return 'remember_token';
     }
 
+    function volunteer()
+    {
+        return $this->belongsToMany(event::class,'event_regist','account_id')->withPivot('id', 'experience', 'phone')->withTimestamps();
+    }
     function event()
     {
-        return $this->belongsToMany(event::class);
+        return $this->hasMany(event::class);
     }
 }
 
