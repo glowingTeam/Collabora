@@ -24,7 +24,7 @@
             <input type="password" name="password" class="form-controll" placeholder="Confirm Password">
          </div>
 
-         <button type="submit" class="btn">Submit</button>
+         <button type="submit" class="btn">Save</button>
 
          <div class="register-link">
             <p>Remember you're account? <a 
@@ -32,9 +32,9 @@
          </div>
          </form>
 
-        {{-- @foreach ($errors->all() as $error)
+        @foreach ($errors->all() as $error)
             <li>{{ $error }}</li>
-        @endforeach --}}
+        @endforeach
     </div>
 </div>
 </body>

@@ -21,7 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/dashboard', function () {
     $events = \App\Models\event::all();
     return view('page.dashboard',['events'=>$events]);
@@ -30,19 +29,17 @@ Route::get('/dashboard', function () {
 //Event
 Route::resource('/event', EventController::class);
 Route::get('/event', [EventController::class, 'search']);
+Route::get('/event/{id}', [EventController::class, 'show']);
 
 Route::resource('/account', AccountController::class);
 Route::post('/masuk', [SessionController::class, 'masuk']);
 
-
 Route::get('/forgot-password', function () {
     return view('page.forgot-pass');
 });
-// Route::get('/account/forgot', [AccountController::class, 'forgot']);
-
 
 Route::get('/admin/manage-event', [EventController::class, 'index'])->name('index');
-Route::get('/event/{event}', [EventController::class, 'update']);
+// Route::get('/event/{event}', [EventController::class, 'update']);
 
 Route::get('/admin/manage-account', [AccountController::class, 'manage'])->name('manage');
 

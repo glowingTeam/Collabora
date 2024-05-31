@@ -1,11 +1,19 @@
+
 @extends('layouts.main')
 
 @section('content')
+
+<br>
+<br>
+<br>
 <h1>Admin Manage Event Page</h1>
 
+
+
 <div class="d-flex ms-auto">
-    <a href="event-create" class="btn btn-primary">Create Data</a>
+    <a href="event-create" class="btn btn-dark">Create Data</a>
 </div>
+
 
 <table class="table bg-light border px-3 evt">
     <thead>
@@ -39,9 +47,5 @@
             </tr>
         @endforeach 
     </tbody>
-</table>
-
-{{-- <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, harum? Libero non quaerat explicabo officia similique quos laborum incidunt,
-dolore accusamus expedita illo eius rem alias deleniti quidem, quo sit?</p> --}}
-    
+</table>    
 @endsection

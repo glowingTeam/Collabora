@@ -15,10 +15,14 @@
 @section('content')
 <div class="slide-container">
     <div class="slide-content">
-        
+        <br>
+        <br>
+        <br>
         <div class="judul2">
             <h1><b>Hi, it's Collabora !</b></h1>
         </div>
+
+      
         <section class="container">
             <div class="slide-wrapper">
                 <div class="slider">
@@ -29,42 +33,37 @@
                 <div class="slider-nav">
                     <a href="#slide-1"></a>
                     <a href="#slide-2"></a>
-                    <a href="#slide-3"></a>
                 </div>
             </div>
         </section>
 
-        <div class="judul1">
-                    <h2><b>List Volenteer</b></h2>
+        <!-- Desc -->
+        <br>
+        <div class="heading">
+            <h1><b>Upcoming Event</b></h1>
+            <p>Apakah Anda tertarik untuk mengembangkan keterampilan, memperluas 
+            jaringan profesional, dan berkontribusi pada komunitas teknologi?</p>
         </div>
-        <div class="card-wrapper">
-            @foreach ($events as $event )
-            <div class="card ">
-                
-                <div class="image-content">
-                    <span class="overlay"> </span>
+       
+        <!-- End Desc -->
 
-                        <div class="card-image">
-                            <img src="img/potret3.jpg" alt="" class="card-img">
-                        </div>
-                </div>
-                    
-                <div class="card-content">
-                    <h2 class="name_event">{{ $event->name_event }}</h2>
-                    <h4 class="location">{{ $event->location }}</h4>
-                    <h6 class="date">{{ $event->date }}</h6>
-                    <p class="description">{{ $event->description_event }}</p>
-                    
-                    <a href="/event/{{ $event->id }}"> <button class="button">View More</button> </a>
-                </div>
-                
+        <!-- Card -->
+        <div class="card-container">
+        @foreach ($events as $event )
+        <div class="card">
+            <img src="img/foto2.jpg">
+            <div class="card-content">
+                <h1 class="name_event">{{ $event->name_event }}</h1>
+                <h6 class="location">{{ $event->location }}</h6>
+                <p class="date">Tanggal : {{ $event->date }}</p>
+                <p class="description">Deskripsi :
+                    <br>{{ $event->description_event }}</p>
+                <a href="/event/{{ $event->id }}" class="card-button">Read More</a>
             </div>
-            <br>
+            </div>
             @endforeach
-        </div>
-    </div>
+       </div>
 </div>
-
 @endsection
 </body>
 </html>

@@ -1,7 +1,7 @@
 
 html,
 body {
-    /* background-color: #E8D8C4; */
+    background-color: #E8D8C4;
     height: 100vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
@@ -12,7 +12,7 @@ body {
 
 .mburi{
     background-color: #E8D8C4;
-    height: 200%;
+    height: 500%;
 }
 
 .ktk{
@@ -325,6 +325,8 @@ body.blanding {
     display: flex;
     justify-content: flex-end;
 }
+
+
 
 
 
