@@ -11,26 +11,23 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
-    
-    @extends('layouts.main')
-    @section('content')
-    <br>
-    <br>
-    <br>
-      <div class="heading">
-        <h1><b>{{ $eventList->name_event }}</b></h1>
-        <p>{{ $eventList->location }}</p>
-      </div>
-      <div class="container">
-        <section class="show">
-            <div class="show-image">
-            <img src="../img/foto2.jpg" alt="">
-            </div>
-            <div class="show-content">
-
-            </div>
-        </section>
-      </div>
-    @endsection
+  <br>
+  <br>
+        <div class="heading">
+            <h1><b>{{ $eventList->name_event }}</b></h1>
+            <p>Tanggal: {{ $eventList->date }}</p>
+        </div>
+        <div class="container">
+            <section class="show">
+                <div class="show-image">
+                    <img src="{{ asset('img/potret3.jpg') }}" alt="Event Image">
+                </div>
+                <div class="show-content">
+                    <h2>📍{{ $eventList->location }}</h2>
+                    <p>{{ $eventList->description_event }}</p>
+                    <a href="/dashboard" class="read-more">Back to Dashboard</a>
+                </div>
+            </section>
+        </div>
 </body>
 </html>

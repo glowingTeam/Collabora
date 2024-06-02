@@ -7,9 +7,6 @@
 <br>
 <br>
 <h1>Admin Manage Event Page</h1>
-
-
-
 <div class="d-flex ms-auto">
     <a href="event-create" class="btn btn-dark">Create Data</a>
 </div>

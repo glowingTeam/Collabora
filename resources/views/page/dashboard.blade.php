@@ -18,11 +18,10 @@
         <br>
         <br>
         <br>
+        <!-- Slider -->
         <div class="judul2">
             <h1><b>Hi, it's Collabora !</b></h1>
         </div>
-
-      
         <section class="container">
             <div class="slide-wrapper">
                 <div class="slider">
@@ -36,10 +35,17 @@
                 </div>
             </div>
         </section>
+        <!-- End Slider -->
 
-        {{-- <div class="judul1">
-                    <h2><b>List Volenteer</b></h2>
-        </div> --}}
+        <!-- Upcoming -->
+        <br>
+        <br>
+            <div class="heading">
+                <h1><b>Upcoming Event</b></h1>
+            </div>
+        <!-- End Upcoming -->
+
+        <br>
         <div class="card-wrapper">
             @foreach ($events as $event )
             <div class="card ">
@@ -52,13 +58,16 @@
                         </div>
                 </div>
                     
+                
                 <div class="card-content">
                     <h2 class="name_event">{{ $event->name_event }}</h2>
                     <h4 class="location">{{ $event->location }}</h4>
                     <h6 class="date">{{ $event->date }}</h6>
                     <p class="description">{{ $event->description_event }}</p>
                     
-                    <a href="/event/{{ $event->id }}"> <button class="button">View More</button> </a>
+                      
+                    <a href="/event/show/{{ $event->id }}"> <button class="button">View More</button></a>
+
                 </div>
                 
             </div>

@@ -1,3 +1,119 @@
-*{
-    background-color: beige;
+/* General Reset and Base Styles */
+* {
+    /* background-color:cornsilk; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Heading Section */
+.heading {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.heading h1 {
+    padding: 15px 30px;
+    background-color:darkslategrey;
+    color:#fff;
+    font-size: 50px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+}
+
+.heading h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background-color: darkslategray; /* Decorative underline */
+    border-radius: 2px;
+}
+
+.heading h1:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    background-color:darkslategrey;
+}
+
+.heading p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+/* Container Section */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+/* Show Section */
+.show {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.show-image {
+    flex: 1;
+    margin-right: 40px;
+    overflow: hidden;
+}
+
+.show-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.show-image:hover img {
+    transform: scale(1.2);
+}
+
+.show-content {
+    flex: 1;
+}
+
+.show-content h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.show-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Read More Button */
+.show-content .read-more {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.show-content .read-more:hover {
+    background-color: #666;
 }
