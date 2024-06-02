@@ -19,7 +19,7 @@
         <br>
         <br>
         <div class="judul2">
-            <h1><b>Hi, it's Collabora !</b></h1>
+            <h1><b>Hi, {{ session('account')['name'] }}!</b></h1>
         </div>
 
       
@@ -40,7 +40,8 @@
         {{-- <div class="judul1">
                     <h2><b>List Volenteer</b></h2>
         </div> --}}
-        <div class="card-wrapper">
+        <br>
+        <div class="card-wrapper d-flex flex-row gap-4">
             @foreach ($events as $event )
             <div class="card ">
                 
