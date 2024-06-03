@@ -43,7 +43,7 @@
                                 <button class="btn btn-danger" type="submit" onclick="return confirm ('Apakah anda yakin untuk menghapus event ini?')">Delete</button>
                             </form> --}}
                             <a class="btn btn-primary btn-sm" href="{{ route('show.volunteer',['event' => $item->id ]) }}">Request</a>
-                            <a class="btn btn-success btn-sm" href="{{ route('show.volunteer',['event' => $item->id ]) }}">Member</a>
+                            <a class="btn btn-success btn-sm" href="{{ route('show.accepted.volunteer',['event' => $item->id ]) }}">Member</a>
                         </div>
                         {{-- <a class="btn btn-danger btn-sm" href=''>Delete</a> --}}
                     </td>

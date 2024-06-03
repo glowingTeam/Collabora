@@ -40,7 +40,7 @@ Route::get('/event/show/{id}', [EventController::class, 'show']);
 Route::post('/event_regist/addeventregist/{event}', [EventRegistController::class, 'addeventregist'])->name('regist.event');
 Route::get('/volunteer', [EventRegistController::class, 'index']);
 Route::get('/volunteer/show/{event}', [EventRegistController::class, 'show'])->name('show.volunteer');
-Route::get('/volunteer/showAaccepted/{event}', [EventRegistController::class, 'showAccepted'])->name('show.accepted.volunteer');
+Route::get('/volunteer/showAccepted/{event}', [EventRegistController::class, 'showAccepted'])->name('show.accepted.volunteer');
 Route::get('/volunteer/deny/{id}', [EventRegistController::class, 'deny'])->name('deny.volunteer');
 Route::get('/volunteer/accept/{id}', [EventRegistController::class, 'accept'])->name('accept.volunteer');
 
