@@ -9,7 +9,7 @@ class EventController extends Controller
 {
     //
     function index() {
-        $event = Event::all();
+        $event = Event::where('account_id', session('account')->id)->get();
         return view('event/index', ['eventList' => $event]);
         // $search = $request->search;
         // $event = event::where('name_event', 'LIKE', '%'.$search.'%')->get();
@@ -33,6 +33,7 @@ class EventController extends Controller
         $event->location = $request->location;
         $event->date = $request->date;
         $event->description_event = $request->description_event;
+        $event->account_id = session('account')->id;
         $event->save();
         return redirect('/event');
     }
@@ -66,7 +67,8 @@ class EventController extends Controller
         return redirect()->route('index');
     }
 
-    function destroy(Event $event) {
+    function destroy($id) {
+        $event = event::where('id', $id);
         $event->delete();
         return redirect('/event');
     }

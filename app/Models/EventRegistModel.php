@@ -10,5 +10,18 @@ class EventRegistModel extends Model
     use HasFactory;
     protected $table = 'event_regist';
     protected $primaryKey = 'id';
-    protected $fillable = ['name', 'email', 'phone', 'birthdate', 'experience'];
+    protected $guarded = ['id'];
+
+
+    public function event()
+    {
+        return $this->belongsTo(Event::class, 'event_id', 'id');
+    }
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class, 'account_id', 'id');
+    }
+
+
 }

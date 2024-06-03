@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
             $table->string('experience');
             $table->string('phone');
+            $table->string('status');
             $table->unsignedBigInteger('event_id')->nullable();
             $table->foreign('event_id')->references('id')->on('event')->onDelete('cascade');
             $table->timestamps();

@@ -9,29 +9,52 @@ use Illuminate\Http\Request;
 
 class EventRegistController extends Controller
 {
-    public function addeventregist(Request $request)
+    public function addeventregist(Request $request , $event)
     {
+        //dd($event);
         $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
             'phone' => 'required',
-            'birthdate' => 'required',
             'experience' => 'required'
+            
         ]);
 
         EventRegistModel::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'account_id' => session('account')->id,
             'phone' => $request->phone,
-            'birthdate' => $request->birthdate,
-            'experience' => $request->experience
+            'status' => 'request',  
+            'experience' => $request->experience,
+            'event_id' => $event
         ]);
 
         return redirect('/dashboard')->with('status', 'Data Berhasil Ditambahkan!');
     }
     public function index()
     {
-        $volunteer = EventRegistModel::all();
+        $volunteer = EventRegistModel::with('event')->where('account_id', session('account')->id)->get();
         return view('page/list-volunteer', ['volunteerList' => $volunteer]);
+    }
+
+    public function show($event)
+    {
+        $volunteer = EventRegistModel::with('event','account')->where('event_id', $event)->get();
+        return view('page/list-volunteer', ['volunteerList' => $volunteer]);
+    }
+    public function showAccepted($event)
+    {
+        $volunteer = EventRegistModel::with('event','account')->where('event_id', $event)->get();
+        return view('page/accepted-volunteer', ['volunteerList' => $volunteer]);
+    }
+    public function deny($id){
+        $volunteer = EventRegistModel::findOrFail($id);
+        // dd($volunteer);
+        $volunteer->delete();
+        return redirect('/event');
+    }
+    public function accept($id){
+        $volunteer = EventRegistModel::findOrFail($id);
+        // dd($volunteer);
+        $volunteer->status='accepted';
+        $volunteer->save();
+        return redirect('/event');
     }
 }
