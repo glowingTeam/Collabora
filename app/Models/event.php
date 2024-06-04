@@ -10,8 +10,12 @@ class event extends Model
     use HasFactory;
     protected $table = "event";
 
-    public function events() {
-        return $this->hasMany(Event::class, 'id'. 'id');
+    public function Account() {
+        return $this->belongsTo(Account::class);
+    }
+    function volunteer()
+    {
+        return $this->belongsToMany(event::class,'event_regist','event_id')->withPivot('id', 'experience', 'phone')->withTimestamps();
     }
 
 }

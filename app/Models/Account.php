@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Account extends Authenticatable
@@ -60,6 +61,15 @@ class Account extends Authenticatable
     public function getRememberTokenName()
     {
         return 'remember_token';
+    }
+
+    function volunteer()
+    {
+        return $this->belongsToMany(event::class,'event_regist','account_id')->withPivot('id', 'experience', 'phone')->withTimestamps();
+    }
+    function event()
+    {
+        return $this->hasMany(event::class);
     }
 }
 

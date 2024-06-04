@@ -33,6 +33,7 @@ class SessionController extends Controller
 
             $data = Account::where('email', $request->email)->firstOrFail();
             if (Hash::check($request->password, $data->password)) {
+                session(['account' => $data]);
                 return redirect('/dashboard')->with('success', 'berhasil login');
             } else {
                 return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');

@@ -38,6 +38,7 @@ Route::get('/volunteer', [EventRegistController::class, 'index']);
 
 Route::resource('/account', AccountController::class);
 Route::post('/masuk', [SessionController::class, 'masuk']);
+Route::get('/logout', [SessionController::class, 'logout']);
 Route::get('/forgot-password', function () {
     return view('page.forgot-pass');
 });

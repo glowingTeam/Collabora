@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-
+<br>
+<br>
     <div class="d-flex mb-4">
         <form action="" method="GET" class="d-flex col-4">
             <input class="form-control mme 2 flex-item" type="text" name="search" placeholder="Search Event">
@@ -33,7 +34,7 @@
                     <td>{{ $item->description_event }}</td>
                     <td>
                         <div class="d-flex gap-2">
-                            <a class="btn btn-secondary btn-sm" href="/event/{{ $item->id }}">Show</a>
+                            <a class="btn btn-secondary btn-sm" href="/event/show/{{ $item->id }}">Show</a>
                             <a class="btn btn-warning btn-sm" href="/event/{{ $item->id }}/edit">Edit</a>
                             <form action="/event/{{ $item->id }}" method="POST">
                                 @csrf
