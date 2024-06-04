@@ -10,7 +10,7 @@
         </form>
 
         <div class="d-flex ms-auto">
-            <a href="event/create" class="btn btn-primary">Create Data</a>
+            <a href="/event/create" class="btn btn-primary">Create Data</a>
         </div>
     </div>
     

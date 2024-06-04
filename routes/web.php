@@ -30,10 +30,10 @@ Route::get('/dashboard', function () {
 
 //Event
 Route::get('/event', [EventController::class, 'index']);
+Route::get('/event/create', [EventController::class, 'create']);
 Route::post('/event', [EventController::class, 'store']);
 Route::get('/event/edit/{id}', [EventController::class, 'edit']);
-Route::get('/event/{id}', [EventController::class, 'destroy']); 
-Route::get('/event/create', [EventController::class, 'create']);
+Route::get('/event/{id}', [EventController::class, 'destroy']);
 Route::get('/event/search', [EventController::class, 'search']);
 Route::get('/event/show/{id}', [EventController::class, 'show']);
 
