@@ -36,8 +36,8 @@
                         <div class="d-flex gap-2">
                             <a class="btn btn-secondary btn-sm" href="/event/show/{{ $item->id }}">Show</a>
                             <a class="btn btn-warning btn-sm" href="/event/edit/{{ $item->id }}">Edit</a>
-                            <a class="btn btn-danger btn-sm" href="/event/{{ $item->id }}">Delete</a>
-                            {{-- <form action="/event/{{ $item->id }}" method="POST">
+                            <a class="btn btn-danger btn-sm" onclick="return confirm ('Apakah anda yakin untuk menghapus event ini?')" href="/event/{{ $item->id }}">Delete</a>
+                            {{-- <form action="/event/{{ $item }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-danger" type="submit" onclick="return confirm ('Apakah anda yakin untuk menghapus event ini?')">Delete</button>

@@ -33,6 +33,7 @@ Route::get('/event', [EventController::class, 'index']);
 Route::get('/event/create', [EventController::class, 'create']);
 Route::post('/event', [EventController::class, 'store']);
 Route::get('/event/edit/{id}', [EventController::class, 'edit']);
+Route::put('/event/update/{id}', [EventController::class, 'update']);
 Route::get('/event/{id}', [EventController::class, 'destroy']);
 Route::get('/event/search', [EventController::class, 'search']);
 Route::get('/event/show/{id}', [EventController::class, 'show']);
@@ -50,13 +51,11 @@ Route::get('/logout', [SessionController::class, 'logout']);
 Route::get('/forgot-password', function () {
     return view('page.forgot-pass');
 });
-// Route::get('/account/forgot', [AccountController::class, 'forgot']);
 
 Route::get('/admin/manage-event', [EventController::class, 'index'])->name('index');
 Route::get('/admin/event/create', [EventController::class, 'create']);
 Route::get('/admin/event/create', [EventController::class, 'create']);
 Route::get('/event/{event}', [EventController::class, 'update']);
-// Route::get('/event/{event}', [EventController::class, 'update']);
 
 Route::get('/admin/manage-account', [AccountController::class, 'manage'])->name('manage');
 
