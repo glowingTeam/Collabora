@@ -86,6 +86,7 @@ class SessionController extends Controller
         $data = [
             'name' => $request->name,
             'email' => $request->email,
+            'role' => 'user',
             'password' => $request->password
         ];
 
@@ -93,9 +94,11 @@ class SessionController extends Controller
         $data = new User;
         $data->name = $request->name;
         $data->email = $request->email;
+        $data->role = 'user';
         $data->password = $request->password;
         $data->save();
 
+        
 
         $infologin = [
             'email' => $request->email,

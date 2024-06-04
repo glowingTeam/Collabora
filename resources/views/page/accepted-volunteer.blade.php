@@ -11,12 +11,11 @@
                 <th>No.HP</th>
                 <th>Experience</th>
                 <th>status</th>
-                <th>action</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($volunteerList as $item)
-            @if ($item->status=='request')
+            @if ($item->status=='accepted')
                 
             <tr>
                 <td>{{ $item->account['name'] }}</td>
@@ -24,9 +23,6 @@
                 <td>{{ $item->phone }}</td>
                 <td>{{ $item->experience }}</td>
                 <td>{{ $item->status }}</td>
-                <td><a class="btn btn-danger btn-sm" href="{{ route('deny.volunteer',['id' => $item->id ]) }}">deny</a>
-                    <a class="btn btn-success btn-sm" href="{{ route('accept.volunteer',['id' => $item->id ]) }}">accept</a></td>
-                </td>
             </tr>
             @endif
             @endforeach 

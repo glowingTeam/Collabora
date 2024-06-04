@@ -63,20 +63,21 @@
           <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
 
             <li class="nav-item">
-              <a class="nav-link mx-lg-2" href="/volunteer">Volenteer</a>
+              <a class="nav-link mx-lg-2" href="/dashboard">dashboard</a>
             </li>
-
+            @if(session('account')['role']=='user')
             <li class="nav-item">
               <a class="nav-link mx-lg-2" href="/event">Event</a>
             </li>
-
+            @else(session('account')['role']=='admin')
             <li class="nav-item">
               <a class="nav-link mx-lg-2" href="/admin/manage-account">Manage Account</a>
             </li>
-
+            
             <li class="nav-item">
               <a class="nav-link mx-lg-2" href="/admin/manage-event">Manage Event</a>
             </li>
+            @endif
           </ul>
           {{-- <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark ">
             <div class="container-fluid ">

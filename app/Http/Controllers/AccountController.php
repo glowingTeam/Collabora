@@ -54,9 +54,10 @@ class AccountController extends Controller
             ]);
 
             $validateData['password'] = bcrypt($validateData['password']);
-            DB::insert('INSERT INTO accounts (name, email, password) VALUES (?, ?, ?)', [
+            DB::insert('INSERT INTO accounts (name, email, role, password) VALUES (?, ?, ?, ?)', [
                 $validateData['name'],
                 $validateData['email'],
+                'user',
                 $validateData['password']
             ]);
             return redirect('/account');

@@ -74,8 +74,8 @@
                     <p class="description">{{ $event->description_event }}</p>
                     
                     <a href="/event/show/{{ $event->id }}"> <button class="button">View More</button></a>
-                    <button class="button" data-toggle="modal" data-target="#modalEventRegist">Volunteer</button>
-                    <div class="modal fade" id="modalEventRegist" tabindex="-1" role="dialog" aria-labelledby="modalEventRegistLabel" aria-hidden="true">
+                    <button class="button" data-toggle="modal" data-target="#modalEventRegist{{$event->id}}">Volunteer</button>
+                    <div class="modal fade" id="modalEventRegist{{$event->id}}" tabindex="-1" role="dialog" aria-labelledby="modalEventRegistLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -83,30 +83,9 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <form name="formEventRegist" id="formEventRegist" action="/event_regist/addeventregist" method="post" enctype="multipart/form-data">
+                                    <form name="formEventRegist" id="formEventRegist" action="{{ route('regist.event',['event' => $event->id]) }}" method="post" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="form-group row">
-                                            <label for="id" class="col-sm-4 col-form-label">Nama</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Masukan Nama Anda" value="">
-                                            </div>
-                                        </div>
 
-                                        <p>
-                                        <div class="form-group row">
-                                            <label for="email" class="col-sm-4 col-form-label">Email</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="email" name="email" placeholder="Masukan Email Anda" value="">
-                                            </div>
-                                        </div>
-
-                                        <p>
-                                        <div class="form-group row">
-                                            <label for="birthdate" class="col-sm-4 col-form-label">Tanggal Lahir</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="Masukan Tanggal Lahir Anda">
-                                            </div>
-                                        </div>
 
                                         <p>
                                         <div class="form-group row">
