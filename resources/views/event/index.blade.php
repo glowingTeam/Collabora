@@ -24,7 +24,8 @@
         </form>
 
         <div class="d-flex ms-auto">
-            <a href="event/create" class="btn btn-primary">Create Data</a>
+            <a href="event/create" class="btn btn-dark">Create Data</a>
+
         </div>
     </div>
     
@@ -52,11 +53,20 @@
                     <td>{{ $item->date }}</td>
                     <td>{{ $item->description_event }}</td>
                     <td>
+
+                            <a class="btn btn-outline-dark" href="/event/show/{{ $item->id }}">Show</a>
+                            <a class="btn btn-outline-dark" href="/event/edit/{{ $item->id }}">Edit</a>
+                            <a class="btn btn-outline-dark" href="{{ route('show.volunteer',['event' => $item->id ]) }}">Request</a>
+                            <a class="btn btn-outline-dark" href="{{ route('show.accepted.volunteer',['event' => $item->id ]) }}">Member</a>
+                            <a class="btn btn-outline-danger" href="/event/{{ $item->id }}">Delete</a>
+                            {{-- <form action="/event/{{ $item->id }}" method="POST">
+
                         <div class="d-flex gap-2">
                             <a class="btn btn-secondary btn-sm" href="/event/show/{{ $item->id }}">Show</a>
                             <a class="btn btn-warning btn-sm" href="/event/edit/{{ $item->id }}">Edit</a>
-                            <a class="btn btn-danger btn-sm" href="/event/{{ $item->id }}">Delete</a>
-                            {{-- <form action="/event/{{ $item->id }}" method="POST">
+                            <a class="btn btn-danger btn-sm" onclick="return confirm ('Apakah anda yakin untuk menghapus event ini?')" href="/event/{{ $item->id }}">Delete</a>
+                            {{-- <form action="/event/{{ $item }}" method="POST">
+
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-outline-danger" type="submit" onclick="return confirm ('Apakah anda yakin untuk menghapus event ini?')">Delete</button>
