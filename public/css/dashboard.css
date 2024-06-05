@@ -66,65 +66,72 @@
     opacity: 1;
 }
 
-/* Card */
-.card-container{
+/* End Slider */
+
+/* Judul */
+.judul2{
+    color: darkslategrey;
+}
+/* End Judul */
+
+.card-container {
+    border-radius: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 550px; /* Fixed height for the card */
+}
+
+.card-wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Tiga kolom per baris */
-    /* justify-content: space-between; */
-    /* flex-wrap: wrap; */
-    align-content: center;
+    align-items: start;
+    text-align: center;
     gap: 5px;
-    margin-top: 50px;
+    margin-top: 5px;
     margin-bottom: 50px;
 }
 
-.card{
-    width: 325px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
-    overflow: hidden;
-    transition: transform 0.6s;
-}
-
-/* .card:hover{
-    transform: translateY(-20px);
-} */
-
-.card img{
+.card-image img {
+    border-radius: 20px 20px 0px 0px;
     width: 100%;
     height: auto;
-    object-fit: cover;
 }
 
-.card-content{
-    padding: 20px;
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    padding: 15px;
+    height: 100%; /* Ensure content stretches to fill card */
 }
 
-.card-content h1{
-    font-size: 24px;
-    margin-bottom: 10px;
+.card-content h2 {
+    margin-top: 15px;
+    font-weight: 100;
+    flex-grow: 1;
 }
 
-.card-content p {
-    font-size: 14px;
-    color: #666;
+.card-content button {
+    color: #000;
+    border: 1px solid;
     margin-bottom: 20px;
+    align-self: center;
 }
 
-.card-button{
-    display: inline-block;
-    background-color:black;
-    color:darkslategrey;
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 8px 16px;
+.card-content button:hover {
+    background-color: bisque;
+    color: #000;
 }
+
+
 
 /* About */
 .heading h1 {
     padding: 15px 30px;
-    background-color:darkslategrey;
+    background-color:#2f4f4f;
     color:#fff;
     font-size: 30px;
     border-radius: 10px;

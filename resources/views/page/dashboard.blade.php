@@ -18,25 +18,27 @@
         <br>
         <br>
         <br>
+
         <!-- Slider -->
         <div class="judul2">
             <h1><b>Hi, {{ session('account')['name'] }}!</b></h1>
         </div>
+        <br>
         <section class="container">
             <div class="slide-wrapper">
                 <div class="slider">
-                <img id="slide-1" src="img/foto1.jpg" alt="" class="card-img">
-                <img id="slide-2" src="img/foto2.jpg" alt="" class="card-img">
-                <img id="slide-3" src="img/foto3.jpg" alt="" class="card-img">
+                <img id="slide-1" src="img/1.png" alt="" class="card-img">
+                <img id="slide-2" src="img/2.png" alt="" class="card-img">
+                <img id="slide-3" src="img/3.png" alt="" class="card-img">
                 </div>
                 <div class="slider-nav">
                     <a href="#slide-1"></a>
                     <a href="#slide-2"></a>
+                    <a href="#slide-3"></a>
                 </div>
             </div>
         </section>
         <!-- End Slider -->
-
 
         <!-- Upcoming -->
         <br>
@@ -46,17 +48,12 @@
             </div>
         <!-- End Upcoming -->
 
+        <!-- Card -->
         <br>
-        <div class="card-wrapper">
-
-        {{-- <div class="judul1">
-                    <h2><b>List Volenteer</b></h2>
-        </div> --}}
-        <br>
-        <div class="card-wrapper d-flex flex-row gap-4">
+        <div class="card-wrapper d-grid grid-template-columns: repeat(3, 1fr) gap-5 flex-wrap: wrap ">
 
             @foreach ($events as $event )
-            <div class="card ">
+            <div class="card-container">
                 
                 <div class="image-content">
                     <span class="overlay"> </span>
@@ -68,10 +65,11 @@
                     
                 
                 <div class="card-content">
-                    <h2 class="name_event">{{ $event->name_event }}</h2>
-                    <h4 class="location">{{ $event->location }}</h4>
+                    <h2 class="name_event">
+                        <br>{{ $event->name_event }}</h2>
+                    <!-- <h4 class="location">{{ $event->location }}</h4>
                     <h6 class="date">{{ $event->date }}</h6>
-                    <p class="description">{{ $event->description_event }}</p>
+                    <p class="description">{{ $event->description_event }}</p> -->
                     
                     <a href="/event/show/{{ $event->id }}"> <button class="button">View More</button></a>
                     <button class="button" data-toggle="modal" data-target="#modalEventRegist{{$event->id}}">Volunteer</button>
@@ -118,7 +116,6 @@
                 
             </div>
             @endforeach
-       </div>
 </div>
 @endsection
 </body>

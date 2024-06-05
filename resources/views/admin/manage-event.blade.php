@@ -1,25 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Event</title>
 
+     <!-- Link -->
+     <link rel="stylesheet" href="{{ '../css/manageevent.css' }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
 @extends('layouts.main')
 
-@section('content')
+<br>
+<br>
+<br>
 
-<br>
-<br>
-<br>
-<h1>Admin Manage Event Page</h1>
 <div class="d-flex ms-auto">
     <a href="event/create" class="btn btn-dark">Create Data</a>
 </div>
 
 
-<table class="table bg-light border px-3 evt">
+<table class="table">
     <thead>
         <tr>
             <th>Name Event</th>
             <th>Location</th>
-            <th>date</th>
+            <th>Date</th>
             <th>Deskripsion</th>
-            <th>Aksi</th>
+            <th>Aksiiiiiiiiii</th>
         </tr>
     </thead>
     <tbody>
@@ -46,3 +56,5 @@
     </tbody>
 </table>    
 @endsection
+</body>
+</html>

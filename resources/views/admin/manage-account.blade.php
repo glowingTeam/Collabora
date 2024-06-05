@@ -1,39 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Account</title>
+
+    <!-- Link -->
+    <link rel="stylesheet" href="{{ '../css/manageac.css' }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+</head>
+<body>
+
 @extends('layouts.main')
 @section('content')
         <br>
         <br>
         <br>
     <div class="d-flex ms-auto">
-        <a href="../account/create" class="btn btn-primary">Create Account</a>
+        <a href="../account/create" class="btn btn-dark">Create Account</a>
     </div>
-
-    <table class="table bg-light border px-3 evt">
+    <br>
+    <table class="table table-light table-hover">
         <thead>
             <tr>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Aksi</th>
+            <th scope="col">No</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Email</th>
+            <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
-        {{-- Cuma coba ngeluarin data  --}}
+        @php
+            $counter = 1; // Initialize a counter variable
+        @endphp
             @foreach ($accountList as $item)
-                <tr>
-                    <td>{{ $item->name }}</td>
-                    <td>{{ $item->email }}</td>
-                    <td>
-                        <div class="d-flex gap-2">
-                            <a class="btn btn-warning btn-sm" href="{{url('account/'.$item->id.'/edit')}}">Edit</a>
-                            <form action="/account/{{ $item->id }}" method="POST">
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-danger" type="submit" onclick="return confirm ('Apakah anda yakin untuk menghapus account ini?')">Delete</button>
-                            </form>
-                        </div>
-                        {{-- <a class="btn btn-secondary btn-sm" href=''>Detail</a> --}}
-                    </td>
-                </tr>
+            <tr>
+            <th scope="row">{{ $counter++ }}</th>
+            <td>{{ $item->name }}</td>
+            <td>{{ $item->email }}</td>
+            <td>                    
+                    <a class="btn btn-outline-dark" href="{{url('account/'.$item->id.'/edit')}}">Edit</a>
+                    <a class="btn btn-outline-danger" href= "/account/{{ $item->id }}">Delete</a>
+                   
+                </div>
+            </td>
+        </tr>
             @endforeach 
         </tbody>
     </table>
 @endsection
+</body>
+</html>
+</body>
+</html>
