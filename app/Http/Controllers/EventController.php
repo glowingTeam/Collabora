@@ -45,20 +45,21 @@ class EventController extends Controller
         ]); 
     }
 
-    function edit(Event $event) {
+    function edit($id) {
+        $event = Event::find($id);
         return view('page/event-edit', [
             'eventList' => $event
         ]);
     }
 
-    function update(Request $request, Event $event) {
+    function update(Request $request, $id) {
+        $event = Event::find($id);
         $validateData = $request->validate([
             'name_event' => 'required',
             'location' => 'required',
             'date' => 'required',
             'description_event' => 'required'
         ]);
-        // dd($validateData);
         $event->name_event = $validateData['name_event'];
         $event->location = $validateData['location'];
         $event->date = $validateData['date'];

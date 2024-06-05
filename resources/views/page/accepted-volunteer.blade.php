@@ -10,7 +10,7 @@
                 <th>Email</th>
                 <th>No.HP</th>
                 <th>Experience</th>
-                <th>status</th>
+                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -27,15 +27,6 @@
             @endif
             @endforeach 
         </tbody>
-        <tfoot>
-            <tr>
-                <th>Nama Volunteer</th>
-                <th>Email</th>
-                <th>No.HP</th>
-                <th>Experience</th>
-                <th>Event</th>
-            </tr>
-        </tfoot>
     </table>
 </div>
 @endsection

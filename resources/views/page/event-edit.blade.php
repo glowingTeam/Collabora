@@ -7,7 +7,7 @@
         <br>
         <br>
         <h1>Edit Event</h1>
-        <form action="/event/{{ $eventList->id }}" method="GET" enctype="multipart/form-data">
+        <form action="/event/update/{{ $eventList->id }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="mb-3">
