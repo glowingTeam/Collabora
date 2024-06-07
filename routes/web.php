@@ -7,6 +7,7 @@ use App\Http\Controllers\EventRegistController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SponsorshipController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,8 +61,8 @@ Route::get('/admin/manage-event', [EventController::class, 'index'])->name('inde
 Route::get('/admin/event/create', [EventController::class, 'create']);
 Route::get('/admin/event/create', [EventController::class, 'create']);
 Route::get('/event/{event}', [EventController::class, 'update']);
-
 Route::get('/admin/manage-account', [AccountController::class, 'manage'])->name('manage');
 
-
+Route::resource('/rating', RatingController::class);
+Route::get('/rating/{id}/show', [RatingController::class,'showByEvent']);
 

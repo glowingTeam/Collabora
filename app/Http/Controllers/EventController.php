@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -40,8 +41,10 @@ class EventController extends Controller
 
     function show($id) {
         $event = Event::find($id);
+        $avgRating = Rating::where('event_id', $event->id)->avg('star');
         return view('page/event-show', [
             'eventList' => $event,
+            'avgRating' => $avgRating,
         ]); 
     }
 

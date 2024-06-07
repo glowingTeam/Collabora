@@ -27,7 +27,13 @@
                     <td>{{ $item->email }}</td>
                     <td>
                         <a class="btn btn-outline-dark" href="{{ url('account/' . $item->id . '/edit') }}">Edit</a>
-                        <a class="btn btn-outline-danger" href= "/account/{{ $item->id }}">Delete</a>
+                        {{-- <a class="btn btn-outline-danger" href= "/account/{{ $item->id }}">Delete</a> --}}
+                        <form action="/account/{{ $item->id }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-outline-danger" type="submit"
+                                onclick="return confirm ('Apakah anda yakin untuk menghapus account ini?')">Delete</button>
+                        </form>
 
                         </div>
                     </td>

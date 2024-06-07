@@ -13,8 +13,12 @@
             </thead>
             <tbody>
                 @foreach ($sponsorshipList as $item)
+                {{-- @php
+                    $acc = App\Models\Account::where('id', $item->account_id)->first();
+                    // dd($acc);
+                @endphp --}}
                     <tr>
-                        <td>{{ $item->name_sponsor }}</td>
+                        <td>{{ $item->nama_sponsor }}</td>
                         <td>{{ $item->contact }}</td>
                         <td>{{ $item->img }}</td>
                         <td>{{ $item->status }}</td>

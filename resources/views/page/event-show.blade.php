@@ -25,6 +25,48 @@
 
     <!-- Link Boostrap Date/ Tanggal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .star-rating {
+            direction: rtl;
+            display: inline-block;
+            font-size: 2em;
+            position: relative;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            color: #ddd;
+            cursor: pointer;
+            font-size: 2em;
+            padding: 0 0.1em;
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .star-rating input:checked~label {
+            color: #f5b301;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover~label {
+            color: #f5b301;
+        }
+
+        .star-rating input:checked+label:hover,
+        .star-rating input:checked+label:hover~label,
+        .star-rating input:checked~label:hover,
+        .star-rating input:checked~label:hover~label,
+        .star-rating label:hover~input:checked~label {
+            color: #f5b301;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,12 +86,20 @@
                 <h2>📍{{ $eventList->location }}</h2>
                 <p>{{ $eventList->description_event }}</p>
                 <p>interested in sponsoring? apply here!</p>
+                <p>Events Rating! {{ $avgRating }}★ <a href="/rating/{{ $eventList->id }}/show" class="">Show All
+                        Rating</a></p>
+
+
                 <button type="button" class="sponsor" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Sponsorship
+                </button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#create-rating">
+                    Give Ratings!
                 </button>
                 <a href="/dashboard" class="read-more">Back to Dashboard</a>
             </div>
         </section>
+
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -63,6 +113,7 @@
                             method="post" enctype="multipart/form-data">
                             @csrf
                             <p>
+                                <input type="text" value="{{ session('account')['id'] }}" name="account_id">
                             <div class="form-group row">
                                 <label for="name_sponsor" class="col-sm-4 col-form-label">Nama Sponsor</label>
                                 <div class="col-sm-8">
@@ -96,6 +147,50 @@
             </div>
         </div>
 
+        <div class="modal fade" id="create-rating" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Form Rating</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="formEventShow" id="formEventShow" action="/rating" method="post"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <p>
+                                <input type="text" value="{{ session('account')['id'] }}" name="account_id">
+                                <input type="text" value="{{ $eventList->id }}" name="event_id">
+                            <div class="form-group row">
+                                <label for="name_sponsor" class="col-sm-4 col-form-label">Leave a review : </label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" type="text" name="feedback" id="feedback" required rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="star-rating">
+                                <input type="radio" id="star5" name="star" value="5" />
+                                <label for="star5" title="5 stars">★</label>
+                                <input type="radio" id="star4" name="star" value="4" />
+                                <label for="star4" title="4 stars">★</label>
+                                <input type="radio" id="star3" name="star" value="3" />
+                                <label for="star3" title="3 stars">★</label>
+                                <input type="radio" id="star2" name="star" value="2" />
+                                <label for="star2" title="2 stars">★</label>
+                                <input type="radio" id="star1" name="star" value="1" />
+                                <label for="star1" title="1 star">★</label>
+                            </div>
+                            <p>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">cancel</button>
+                                <button type="submit" class="btn btn-primary">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
         </script>
