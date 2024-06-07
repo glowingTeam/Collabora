@@ -117,3 +117,19 @@
 .show-content .read-more:hover {
     background-color: #666;
 }
+
+.show-content .sponsor {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5686ff;
+    color: #fff;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.show-content .sponsor:hover {
+    background-color: #56cfff;
+}

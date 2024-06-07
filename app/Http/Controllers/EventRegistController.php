@@ -52,7 +52,6 @@ class EventRegistController extends Controller
     }
     public function accept($id){
         $volunteer = EventRegistModel::findOrFail($id);
-        // dd($volunteer);
         $volunteer->status='accepted';
         $volunteer->save();
         return redirect('/event');

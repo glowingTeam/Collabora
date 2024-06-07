@@ -18,7 +18,7 @@ class Account extends Authenticatable
     }
     
     protected $guarded = [
-        'id'
+        'id','role'
     ];
 
     protected $table = 'accounts';

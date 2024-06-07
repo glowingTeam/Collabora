@@ -4,13 +4,15 @@
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
+body{
+    background-color: #E8D8C4;
+}
 .body{
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:#efefef;
+    background-color: #E8D8C4;
     /* border-radius: 25px 25px 0 25px; */
 }
 

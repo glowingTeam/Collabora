@@ -1,24 +1,25 @@
 @extends('layouts.main')
 
 @section('content')
-
-<br>
-<br>
-<br>
-<div class="w-50 center border px-3 py-3 mx-auto bg-light p-3 ktk">
+    <br>
+    <br>
+    <br>
+    <div class="w-50 center border px-3 py-3 mx-auto bg-light p-3 ktk">
         <h1>Create Event</h1>
         <form action="/event" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name Event</label>
                 <br>
-                <input class="form-control form-control-sm" type="string" name="name_event" id="name" required aria-label=".form-control-sm">
+                <input class="form-control form-control-sm" type="string" name="name_event" id="name" required
+                    aria-label=".form-control-sm">
             </div>
 
             <div class="mb-3">
                 <label for="location" class="form-label">Location</label>
                 <br>
-                <input class="form-control form-control-sm" type="text" name="location" id="location" required aria-label=".form-control-sm">
+                <input class="form-control form-control-sm" type="text" name="location" id="location" required
+                    aria-label=".form-control-sm">
             </div>
 
             <div class="d-flex mb-3">

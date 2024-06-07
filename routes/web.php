@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegistController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SponsorshipController;
 use App\Http\Controllers\SessionController;
 
 /*
@@ -45,10 +46,13 @@ Route::get('/volunteer/showAccepted/{event}', [EventRegistController::class, 'sh
 Route::get('/volunteer/deny/{id}', [EventRegistController::class, 'deny'])->name('deny.volunteer');
 Route::get('/volunteer/accept/{id}', [EventRegistController::class, 'accept'])->name('accept.volunteer');
 
+Route::get('/sponsorship', [SponsorshipController::class, 'index']);
+Route::post('/sponsorship/addsponsorship', [SponsorshipController::class, 'addsponsorship'])->name("addsponsorship");
+
 Route::resource('/account', AccountController::class);
 Route::post('/masuk', [SessionController::class, 'masuk']);
 Route::get('/logout', [SessionController::class, 'logout']);
-Route::get('/forgot-password', function () {
+Route::get('/forgot-password', function(){
     return view('page.forgot-pass');
 });
 
