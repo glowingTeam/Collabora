@@ -57,7 +57,7 @@
                         <td>
                             <a class="btn btn-outline-secondary" href="/event/show/{{ $item->id }}">Show</a>
                             <a class="btn btn-outline-warning" href="/event/edit/{{ $item->id }}">Edit</a>
-                            <a class="btn btn-outline-primary" href="/sponsorship">Sponsors</a>
+                            <a class="btn btn-outline-primary" href="/sponsorship/{{$item->id}}">Sponsors</a>
                             <a class="btn btn-outline-dark"
                                 href="{{ route('show.volunteer', ['event' => $item->id]) }}">Request</a>
                             <a class="btn btn-outline-success"

@@ -114,6 +114,8 @@
                             @csrf
                             <p>
                                 <input type="text" value="{{ session('account')['id'] }}" name="account_id">
+                                <input type="text" value="{{ $eventList->id }}" name="event_id">
+
                             <div class="form-group row">
                                 <label for="name_sponsor" class="col-sm-4 col-form-label">Nama Sponsor</label>
                                 <div class="col-sm-8">

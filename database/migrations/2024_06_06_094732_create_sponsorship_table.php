@@ -21,6 +21,8 @@ return new class extends Migration
             $table->string('contact');
             $table->string('status');
             $table->string('img');
+            $table->unsignedBigInteger('event_id')->nullable();
+            $table->foreign('event_id')->references('id')->on('event')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@ class SponsorshipController extends Controller
     function addsponsorship(Request $request){
         $this->validate($request, [
             'account_id' => 'required',
+            'event_id' => 'required',
             'nama_sponsor' => 'required',
             'contact' => 'required',
             'image' => 'required|file'
@@ -27,6 +28,7 @@ class SponsorshipController extends Controller
 
         $sp = new Sponsorship();
         $sp->account_id = $request->account_id;
+        $sp->event_id = $request->event_id;
         $sp->nama_sponsor = $request->nama_sponsor;
         $sp->status = 'request';
         $sp->contact = $request->contact;
@@ -35,9 +37,9 @@ class SponsorshipController extends Controller
 
         return redirect('/dashboard')->with('status', 'Data Berhasil Ditambahkan!');
     }
-    public function index()
+    public function index($id)
     {
-        $sponsor = Sponsorship::    where('account_id', session('account')['id'])->get();
+        $sponsor = Sponsorship::where('event_id', $id)->get();
         return view('page/sponsorshipList', ['sponsorshipList' => $sponsor]);
     }
 
