@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ '../css/manageac.css' }}">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="path/to/sweetalert2.css">
 </head>
 
 <body>
@@ -27,7 +28,6 @@
 
             <div class="d-flex ms-auto">
                 <a href="event/create" class="btn btn-dark">Create Data</a>
-
             </div>
         </div>
 
@@ -39,7 +39,7 @@
                     <th>Location</th>
                     <th>Date</th>
                     <th>Deskripsion</th>
-                    <th>Aksi</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -62,24 +62,44 @@
                                 href="{{ route('show.volunteer', ['event' => $item->id]) }}">Request</a>
                             <a class="btn btn-outline-success"
                                 href="{{ route('show.accepted.volunteer', ['event' => $item->id]) }}">Member</a>
-                            <a class="btn btn-outline-danger" href="/event/{{ $item->id }}">Delete</a>
-                            {{-- <form action="/event/{{ $item->id }}" method="POST">
-
-                        <div class="d-flex gap-2">
-                            <a class="btn btn-secondary btn-sm" href="/event/show/{{ $item->id }}">Show</a>
-                            <a class="btn btn-warning btn-sm" href="/event/edit/{{ $item->id }}">Edit</a>
-                            <a class="btn btn-danger btn-sm" onclick="return confirm ('Apakah anda yakin untuk menghapus event ini?')" href="/event/{{ $item->id }}">Delete</a>
-                            {{-- <form action="/event/{{ $item }}" method="POST">
-
-                                @csrf
-                                @method('delete')
-                                <button class="btn btn-outline-danger" type="submit" onclick="return confirm ('Apakah anda yakin untuk menghapus event ini?')">Delete</button>
-                            </form> --}}
+                            <button class="btn btn-outline-danger delete-btn" data-id="{{ $item->id }}">Delete</button>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
+
+        <!-- Include SweetAlert2 Library -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Script to Handle Delete Button Click -->
+        <script>
+            // Ambil semua tombol delete
+            const deleteButtons = document.querySelectorAll('.delete-btn');
+
+            // Tambahkan event listener untuk setiap tombol delete
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Ambil ID acara dari atribut data
+                    const eventId = this.getAttribute('data-id');
+
+                    // Tampilkan konfirmasi SweetAlert2
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'You will not be able to recover this event!',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, delete it!',
+                        cancelButtonText: 'No, cancel!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Redirect ke rute penghapusan jika pengguna menekan tombol "Yes, delete it!"
+                            window.location.href = `/event/${eventId}`;
+                        }
+                    });
+                });
+            });
+        </script>
     @endsection
 </body>
 

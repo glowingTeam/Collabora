@@ -58,10 +58,12 @@ Route::get('/forgot-password', function(){
 });
 
 Route::get('/admin/manage-event', [EventController::class, 'index'])->name('index');
-Route::get('/admin/event/create', [EventController::class, 'create']);
+// Route::get('/admin/event/create', [EventController::class, 'create']);
 Route::get('/admin/event/create', [EventController::class, 'create']);
 Route::get('/event/{event}', [EventController::class, 'update']);
 Route::get('/admin/manage-account', [AccountController::class, 'manage'])->name('manage');
+Route::delete('/admin/manage-account/{account}', [AccountController::class, 'destroy'])->name('account.destroy');
+
 
 Route::resource('/rating', RatingController::class);
 Route::get('/rating/{id}/show', [RatingController::class,'showByEvent']);

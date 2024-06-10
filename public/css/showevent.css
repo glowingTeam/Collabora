@@ -133,3 +133,35 @@
 .show-content .sponsor:hover {
     background-color: #56cfff;
 }
+
+
+/* Read More Button */
+.rating {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.rating:hover {
+    background-color: #666;
+}
+
+.rating {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0b4a33;
+    color: #fff;
+    font-size: 19px;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+

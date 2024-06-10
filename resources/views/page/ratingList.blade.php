@@ -1,13 +1,17 @@
 @extends('layouts.main')
 @section('content')
+<br>
+<br>
+<br>
+<h1><b>Rating Event ! </b></h1>
     <div class="mt-5 border p-2 rounded-1 bg-light border">
         <table id="example" class="hover" style="width:100%">
             <thead>
                 <tr>
-                    <th>Nama</th>
-                    <th>rating</th>
-                    <th>star</th>
-                    <th>action</th>
+                    <th>Name</th>
+                    <th>Rating</th>
+                    <th>Star</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>

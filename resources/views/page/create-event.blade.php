@@ -6,7 +6,7 @@
     <br>
     <div class="w-50 center border px-3 py-3 mx-auto bg-light p-3 ktk">
         <h1>Create Event</h1>
-        <form action="/event" method="POST">
+        <form action="/event" method="POST" id="eventForm">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name Event</label>
@@ -44,9 +44,43 @@
         </form>
     </div>
 
-    <script type="text/javascript">
-        $(function() {
-            $('#datepicker').datepicker();
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('eventForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                fetch('/event', {
+                    method: 'POST',
+                    body: new FormData(form),
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return Swal.fire({
+                        title: 'Success!',
+                        text: 'Event has been created successfully.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        // redirek
+                        if (result.isConfirmed) {
+                            window.location.href = "/event";
+                        }
+                    });
+                })
+                // kalau eror
+                .catch(error => {
+                    console.error('There was an error!', error);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'There was an error while creating the event.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                });
+            });
         });
     </script>
 @endsection

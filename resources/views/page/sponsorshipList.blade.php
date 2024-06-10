@@ -5,10 +5,9 @@
             <thead>
                 <tr>
                     <th>Nama sponsor</th>
-                    <th>contact</th>
-                    <th>logo</th>
-                    <th>status</th>
-                    <th>action</th>
+                    <th>Contact</th>
+                    <th>Logo</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>

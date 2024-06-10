@@ -122,11 +122,19 @@ class AccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     // Fungsional Delete
+    // public function destroy(Account $account)
+    // {
+    //     $account->delete();
+    //     return redirect('/admin/manage-account');
+    // }
+
     public function destroy(Account $account)
     {
-        $account->delete();
-        return redirect('/admin/manage-account');
+    $account->delete();
+    return redirect()->route('manage')->with('success', 'Account has been deleted successfully');
     }
+
+
 
     // Menampilkan form forgot password
     public function forgot(){

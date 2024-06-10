@@ -65,15 +65,12 @@
                                 </div>
                             </div>
 
-
+                            <!-- Card Regist -->
                             <div class="card-content">
                                 <h2 class="name_event">
                                     <br>{{ $event->name_event }}
                                 </h2>
-                                <!-- <h4 class="location">{{ $event->location }}</h4>
-                        <h6 class="date">{{ $event->date }}</h6>
-                        <p class="description">{{ $event->description_event }}</p> -->
-
+                            
                                 <a href="/event/show/{{ $event->id }}"><button class="button">View More</button></a>
                                 <button class="button" data-toggle="modal"
                                     data-target="#modalEventRegist{{ $event->id }}">Volunteer</button>
@@ -129,6 +126,55 @@
                         </div>
                     @endforeach
                 </div>
+                  <!-- Include SweetAlert2 Library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- Script to Handle Form Submission -->
+<script>
+    // Ambil semua formulir event regist
+    const eventRegistForms = document.querySelectorAll('form[name="formEventRegist"]');
+
+    // Tambahkan event listener untuk setiap formulir
+    eventRegistForms.forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Hentikan aksi default pengiriman formulir
+
+            // Kirim data formulir menggunakan fetch atau AJAX
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+            })
+            .then(response => {
+                // Periksa status respons
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                // Jika berhasil, tampilkan SweetAlert
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'You have successfully registered for the event.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/dashboard";
+                    }
+                });
+            })
+            .catch(error => {
+                // Tangani kesalahan jika ada
+                console.error('There was an error!', error);
+                // Tampilkan SweetAlert jika terjadi kesalahan
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'There was an error while registering for the event.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            });
+        });
+    });
+</script>
     @endsection
 </body>
 
