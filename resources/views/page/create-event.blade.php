@@ -24,10 +24,14 @@
 
             <div class="d-flex mb-3">
                 <div class="row form-group">
-                    <label for="date" class="">Date</label>
-                    <div class="col-sm-7">
-                        <input type="date" name="date" id="date" class="form-control">
+                    <div class="col-sm-3">
+                        <label for="date" class="">Date</label>
                     </div>
+                <input type="date" name="date" id="date" class="form-control">
+                </div>
+                <div class="row mb-3 mx-4">
+                    <label for="image" class="form-label mb-3">Upload Logo</label>
+                    <input type="file" class="form-control" id="image-file" name="image">
                 </div>
             </div>
 

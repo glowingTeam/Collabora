@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\event;
 use App\Models\EventRegistModel;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class EventRegistController extends Controller
             'account_id' => session('account')->id,
             'phone' => $request->phone,
             'status' => 'request',  
+            'reward' => 'false',  
             'experience' => $request->experience,
             'event_id' => $event
         ]);
@@ -41,8 +43,12 @@ class EventRegistController extends Controller
     }
     public function showAccepted($event)
     {
-        $volunteer = EventRegistModel::with('event','account')->where('event_id', $event)->get();
-        return view('page/accepted-volunteer', ['volunteerList' => $volunteer]);
+        // dd($event);
+
+        $data = event::where('id',$event)->first();
+        $volunteer = EventRegistModel::where('event_id', $event)->get();
+        // dd($volunteer);
+        return view('page/accepted-volunteer', ['volunteerList' => $volunteer,'event'=>$data]);
     }
     public function deny($id){
         $volunteer = EventRegistModel::findOrFail($id);

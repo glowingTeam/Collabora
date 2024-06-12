@@ -48,6 +48,7 @@ class SponsorshipController extends Controller
         $volunteer = Sponsorship::with('account')->where('event_id', $sponsor)->get();
         return view('page/list-volunteer', ['sponsorList' => $sponsor]);
     }
+    
     // public function showAccepted($event)
     // {
     //     $volunteer = addSponsorshipModel::with('event','account')->where('event_id', $event)->get();

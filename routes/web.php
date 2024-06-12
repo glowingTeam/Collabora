@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\RewardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegistController;
@@ -65,6 +66,7 @@ Route::get('/admin/manage-account', [AccountController::class, 'manage'])->name(
 Route::delete('/admin/manage-account/{account}', [AccountController::class, 'destroy'])->name('account.destroy');
 
 
+Route::get('/reward/{id}',[RewardController::class, 'reward']);
 Route::resource('/rating', RatingController::class);
 Route::get('/rating/{id}/show', [RatingController::class,'showByEvent']);
 

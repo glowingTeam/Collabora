@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('content')
     <div class="mt-5 border p-2 rounded-1 bg-light">
-
         <table id="example" class="hover" style="width:100%">
             <thead>
                 <tr>

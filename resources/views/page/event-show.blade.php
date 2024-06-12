@@ -90,8 +90,15 @@
                 <h6>interested in sponsoring? apply here!</h6>
                 <h6>Events Rating! {{ $avgRating }}★ <a href="/rating/{{ $eventList->id }}/show" class="">Show All
                         Rating</a></h6>
-
-
+                @php
+                // dd(session('account')['id']);
+                $volunteer = App\Models\EventRegistModel::where('account_id',session('account')['id'])->first();
+                // dd($volunteer);
+                @endphp        
+                @if(@$volunteer->reward)
+                <a href="/">sertificate is HERE!</a>
+                @endif
+                <hr>
                 <button type="button" class="sponsor" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Sponsorship
                 </button>

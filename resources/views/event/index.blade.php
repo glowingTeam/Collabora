@@ -21,7 +21,7 @@
         <br>
         <br>
         <div class="d-flex mb-4">
-            <form action="/event/search" method="GET" class="d-flex col-4">
+            <form action="event/search" method="GET" class="d-flex col-4">
                 <input class="form-control mme 2 flex-item" type="text" name="search" placeholder="Search Event">
                 <button class="btn bg-dark text-white flex-item" type="submit">Search</button>
             </form>
@@ -39,7 +39,7 @@
                     <th>Location</th>
                     <th>Date</th>
                     <th>Deskripsion</th>
-                    <th></th>
+                    <th>action</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,10 +59,10 @@
                             <a class="btn btn-outline-warning" href="/event/edit/{{ $item->id }}">Edit</a>
                             <a class="btn btn-outline-primary" href="/sponsorship/{{$item->id}}">Sponsors</a>
                             <a class="btn btn-outline-dark"
-                                href="{{ route('show.volunteer', ['event' => $item->id]) }}">Request</a>
+                            href="{{ route('show.volunteer', ['event' => $item->id]) }}">Request</a>
                             <a class="btn btn-outline-success"
-                                href="{{ route('show.accepted.volunteer', ['event' => $item->id]) }}">Member</a>
-                            <button class="btn btn-outline-danger delete-btn" data-id="{{ $item->id }}">Delete</button>
+                            href="{{ route('show.accepted.volunteer', ['event' => $item->id]) }}">Member</a>
+                            <button class="ml-5 btn btn-outline-danger delete-btn" data-id="{{ $item->id }}">Delete</button>
                         </td>
                     </tr>
                 @endforeach
