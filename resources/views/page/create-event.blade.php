@@ -6,7 +6,7 @@
     <br>
     <div class="w-50 center border px-3 py-3 mx-auto bg-light p-3 ktk">
         <h1>Create Event</h1>
-        <form action="/event" method="POST" id="eventForm">
+        <form action="/event" method="POST" id="eventForm" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name Event</label>

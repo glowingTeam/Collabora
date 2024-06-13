@@ -52,7 +52,7 @@
 
                 <!-- Card -->
                 <br>
-                <div class="card-wrapper d-grid grid-template-columns: repeat(3, 1fr) gap-5 flex-wrap: wrap ">
+                <div class="card-wrapper d-grid grid-template-columns: repeat(3, 1fr) gap-5 flex-wrap: wrap " style="max-height: 100vh">
 
                     @foreach ($events as $event)
                         <div class="card-container">
@@ -61,7 +61,7 @@
                                 <span class="overlay"> </span>
 
                                 <div class="card-image">
-                                    <img src="img/potret3.jpg" alt="" class="card-img">
+                                    <img src="/storage/{{$event->event_image}}" alt="" class="card-img">
                                 </div>
                             </div>
 

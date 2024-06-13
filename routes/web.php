@@ -48,8 +48,11 @@ Route::get('/volunteer/showAccepted/{event}', [EventRegistController::class, 'sh
 Route::get('/volunteer/deny/{id}', [EventRegistController::class, 'deny'])->name('deny.volunteer');
 Route::get('/volunteer/accept/{id}', [EventRegistController::class, 'accept'])->name('accept.volunteer');
 
-Route::get('/sponsorship/{id}', [SponsorshipController::class, 'index']);
+Route::get('/sponsorship/{id}', [SponsorshipController::class, 'show']);
 Route::post('/sponsorship/addsponsorship', [SponsorshipController::class, 'addsponsorship'])->name("addsponsorship");
+Route::get('/sponsorship/deny/{id}', [SponsorshipController::class, 'deny'])->name('deny.sponsor');
+Route::get('/sponsorship/accept/{id}', [SponsorshipController::class, 'accept'])->name('accept.sponsor');
+Route::get('/partner',[SponsorshipController::class, 'partner']);
 
 Route::resource('/account', AccountController::class);
 Route::post('/masuk', [SessionController::class, 'masuk']);
@@ -58,15 +61,16 @@ Route::get('/forgot-password', function(){
     return view('page.forgot-pass');
 });
 
-Route::get('/admin/manage-event', [EventController::class, 'index'])->name('index');
+Route::get('/admin/manage-event', [EventController::class, 'adminEvent'])->name('adEv');
 // Route::get('/admin/event/create', [EventController::class, 'create']);
 Route::get('/admin/event/create', [EventController::class, 'create']);
 Route::get('/event/{event}', [EventController::class, 'update']);
 Route::get('/admin/manage-account', [AccountController::class, 'manage'])->name('manage');
 Route::delete('/admin/manage-account/{account}', [AccountController::class, 'destroy'])->name('account.destroy');
 
-
+Route::get('/download-certificate', [RewardController::class, 'download'])->name('certificate.download');
 Route::get('/reward/{id}',[RewardController::class, 'reward']);
+
 Route::resource('/rating', RatingController::class);
 Route::get('/rating/{id}/show', [RatingController::class,'showByEvent']);
 

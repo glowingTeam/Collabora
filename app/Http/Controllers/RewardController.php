@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Reward;
 use App\Models\EventRegistModel;
+use App\Models\event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class RewardController extends Controller
 {
@@ -12,6 +14,12 @@ class RewardController extends Controller
     {
         $reward = Reward::where('event_id', $id)->get();
         return view('page/rewardList', ['rewardList' => $reward]);
+    }
+    public function showAcc($id)
+    {
+        $data = event::where('id',$id)->first();
+        $reward = Reward::where('event_id', $id)->get();
+        return view('page/partner', ['partnerList' => $reward,'event'=>$data]);
     }
     public function reward($id)
     {
@@ -22,8 +30,11 @@ class RewardController extends Controller
         }
         return redirect ('/volunteer/showAccepted/'.$id);
     }
-    public function show()
+    public function download()
     {
-        
+        $filePath = public_path('certificate/Certificate.pdf'); // Adjust the path to your file
+        $fileName = 'certificate.pdf';
+
+        return Response::download($filePath, $fileName);
     }
 }

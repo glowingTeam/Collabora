@@ -27,7 +27,7 @@
                 $counter = 1; // Initialize a counter variable
             @endphp
             {{-- Cuma coba ngeluarin data  --}}
-            @foreach ($eventList as $item)
+            @foreach ($event as $item)
                 <tr>
                     <th scope="row">{{ $counter++ }}</th>
                     <td>{{ $item->name_event }}</td>
@@ -37,9 +37,9 @@
                     <td>
                         <a class="btn btn-outline-secondary" href="/event/show/{{ $item->id }}">Show</a>
                         <a class="btn btn-outline-warning" href="/event/edit/{{ $item->id }}">Edit</a>
-                        <a class="btn btn-outline-primary" href="/sponsorship/{{$item->id}}">Request</a>
+                        <a class="btn btn-outline-primary" href="/sponsorship/{{ $item->id }}">Sponsors</a>
                         <a class="btn btn-outline-dark"
-                            href="{{ route('show.volunteer', ['event' => $item->id]) }}">Volunteer</a>
+                            href="{{ route('show.volunteer', ['event' => $item->id]) }}">Request</a>
                         <a class="btn btn-outline-success"
                             href="{{ route('show.accepted.volunteer', ['event' => $item->id]) }}">Member</a>
                         <button class="ml-5 btn btn-outline-danger delete-btn"

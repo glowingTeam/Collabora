@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('location');
             $table->date('date');
             $table->text('description_event');
+            $table->string('event_image');
             $table->unsignedBigInteger('account_id')->nullable();
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
         });

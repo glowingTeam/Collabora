@@ -1,5 +1,4 @@
-@extends('layouts.admin')
-
+@extends('layouts.main')
 @section('content')
     <br>
     <br>

@@ -15,6 +15,10 @@ class EventController extends Controller
         // $search = $request->search;
         // $event = event::where('name_event', 'LIKE', '%'.$search.'%')->get();
     }
+    function adminEvent(){
+        $event = Event::all();
+        return view('event/index', ['eventList' => $event]);
+    }
 
     function search(Request $request) {
         $event = Event::all();
@@ -29,11 +33,18 @@ class EventController extends Controller
     }
 
     function store(Request $request) {
+        // $filePath = 'null';
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('event', $filename, 'public');
+        }
         $event = new event;
         $event->name_event = $request->name_event;
         $event->location = $request->location;
         $event->date = $request->date;
         $event->description_event = $request->description_event;
+        $event->event_image = $filePath ?? null;
         $event->account_id = session('account')->id;
         $event->save();
         return redirect('/event');

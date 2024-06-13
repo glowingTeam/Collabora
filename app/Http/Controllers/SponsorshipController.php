@@ -7,34 +7,34 @@ use App\Models\Sponsorship;
 
 class SponsorshipController extends Controller
 {
-    function addsponsorship(Request $request){
-        $this->validate($request, [
+    public function addsponsorship(Request $request)
+    {
+        // dd($request->all());
+
+        // Validate the incoming request
+        $validate = $request->validate([
             'account_id' => 'required',
             'event_id' => 'required',
             'nama_sponsor' => 'required',
             'contact' => 'required',
-            'image' => 'required|file'
+            'image' => 'required|image'
         ]);
+        // dd('test');
 
-        $filename = $request->file('image')->storePublicly('public/sponsor');
-        // dd($request);
-        // Sponsorship::create([
-        //     'account_id' => $request->account_id,
-        //     'nama_sponsor' => $request->nama_sponsor,
-        //     'status' => 'request',
-        //     'contact' => $request->contact,
-        //     'img' => $filename
-        // ]);
+        // Store the uploaded file and get the filename
+        $filename = $request->file('image')->store('public/sponsor');
 
-        $sp = new Sponsorship();
-        $sp->account_id = $request->account_id;
-        $sp->event_id = $request->event_id;
-        $sp->nama_sponsor = $request->nama_sponsor;
-        $sp->status = 'request';
-        $sp->contact = $request->contact;
-        $sp->img = $filename;
-        $sp->save();
+        // Create a new Sponsorship instance and save it to the database
+        $sponsorship = new Sponsorship();
+        $sponsorship->account_id = $request->account_id;
+        $sponsorship->event_id = $request->event_id;
+        $sponsorship->nama_sponsor = $request->nama_sponsor;
+        $sponsorship->status = 'request';
+        $sponsorship->contact = $request->contact;
+        $sponsorship->img = $filename;
+        $sponsorship->save();
 
+        // Redirect to the dashboard with a success message
         return redirect('/dashboard')->with('status', 'Data Berhasil Ditambahkan!');
     }
     public function index($id)
@@ -43,15 +43,27 @@ class SponsorshipController extends Controller
         return view('page/sponsorshipList', ['sponsorshipList' => $sponsor]);
     }
 
-    public function show($sponsor)
+    public function show($id_event)
     {
-        $volunteer = Sponsorship::with('account')->where('event_id', $sponsor)->get();
-        return view('page/list-volunteer', ['sponsorList' => $sponsor]);
+        $sponsor = Sponsorship::where('event_id', $id_event)->get();
+        // dd($sponsor);
+        return view('page/sponsorshipList', ['sponsorList' => $sponsor]);
     }
-    
-    // public function showAccepted($event)
-    // {
-    //     $volunteer = addSponsorshipModel::with('event','account')->where('event_id', $event)->get();
-    //     return view('page/accepted-volunteer', ['volunteerList' => $volunteer]);
-    // }
+
+    public function deny($id){
+        $sponsor = Sponsorship::where('event_id', $id)->first();
+        // dd($volunteer);
+        $sponsor->delete();
+        return redirect('/partner');
+    }
+    public function accept($id){
+        $sponsor = Sponsorship::where('id', $id)->first();
+        $sponsor->status='partner';
+        $sponsor->save();
+        return redirect('/partner');
+    }
+    public function partner(){
+        $sponsor = Sponsorship::all();
+        return view('page/partner', ['listSponsor'=>$sponsor]);
+    }
 }

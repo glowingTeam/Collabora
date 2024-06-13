@@ -94,9 +94,9 @@
                 // dd(session('account')['id']);
                 $volunteer = App\Models\EventRegistModel::where('account_id',session('account')['id'])->first();
                 // dd($volunteer);
-                @endphp        
+                @endphp
                 @if(@$volunteer->reward)
-                <a href="/">sertificate is HERE!</a>
+                <a href="{{ route('certificate.download') }}">sertificate is HERE!</a>
                 @endif
                 <hr>
                 <button type="button" class="sponsor" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -121,7 +121,8 @@
             <div class="modal-body">
                 <form name="formEventShow" id="formEventShow" action="{{ route('addsponsorship') }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" value="Urutan: {{ $eventList->id }}" name="event_id" id="event_id" readonly>
+                    <input type="hidden" value="{{session('account')['id']}}" name="account_id" id="account_id" readonly>
+                    <input type="hidden" value="{{ $eventList->id }}" name="event_id" id="event_id" readonly>
                     <div class="mb-3">
                         <label for="name_sponsor" class="form-label">Nama Sponsor</label>
                         <input type="text" class="form-control" id="name_sponsor" name="nama_sponsor" placeholder="Masukan Nama Sponsor Anda">
