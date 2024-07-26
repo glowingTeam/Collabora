@@ -24,7 +24,7 @@ class EventController extends Controller
         $event = Event::all();
         $search = $request->search;
         $event = event::where('name_event', 'LIKE', '%'.$search.'%')->get();
-        return view('event/index', ['eventList' => $event]);
+        return view('page/dashboard', ['events' => $event]);
     }
 
     function create() {

@@ -38,7 +38,7 @@ Route::post('/event', [EventController::class, 'store']);
 Route::get('/event/edit/{id}', [EventController::class, 'edit']);
 Route::put('/event/update/{id}', [EventController::class, 'update']);
 Route::get('/event/{id}', [EventController::class, 'destroy']);
-Route::get('/event/search', [EventController::class, 'search']);
+Route::get('/search', [EventController::class, 'search'])->name('event.search');
 Route::get('/event/show/{id}', [EventController::class, 'show']);
 
 Route::post('/event_regist/addeventregist/{event}', [EventRegistController::class, 'addeventregist'])->name('regist.event');

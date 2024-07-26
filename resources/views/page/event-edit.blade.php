@@ -38,7 +38,7 @@
 
             <div class="d-flex justify-content-center gap-2">
                 <button class="btn btn-warning" type="submit">Update</button>
-                <a href="/event"> <button class="btn btn-danger">Cancel</button> </a>
+                <a href="/event" class="btn btn-danger">Cancel</a>
             </div>
         </form>
         @foreach ($errors->all() as $error)
@@ -84,17 +84,6 @@
                         }
                     });
                 })
-                .catch(error => {
-                    // Tangani kesalahan jika ada
-                    console.error('There was an error!', error);
-                    // Tampilkan SweetAlert jika terjadi kesalahan
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'There was an error while updating the event.',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
-                });
             });
         });
     </script>

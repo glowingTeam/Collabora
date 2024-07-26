@@ -50,6 +50,13 @@
                 </div>
                 <!-- End Upcoming -->
 
+                <!-- search bar -->
+                <form action="{{route('event.search')}}" method="GET" class="d-flex col-4" target="_self">
+                    <input class="form-control mme 2 flex-item" type="text" name="search" placeholder="Search Event">
+                    <button class="btn bg-dark text-white flex-item" type="submit">Search</button>
+                </form>
+                <!-- end search bar -->
+
                 <!-- Card -->
                 <br>
                 <div class="card-wrapper d-grid grid-template-columns: repeat(3, 1fr) gap-5 flex-wrap: wrap " style="max-height: 100vh">

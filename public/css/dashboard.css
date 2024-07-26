@@ -82,7 +82,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 550px; /* Fixed height for the card */
+    height: 710px; /* Fixed height for the card */
 }
 
 .card-wrapper {
