@@ -37,7 +37,7 @@
             </div>
 
             <div class="d-flex justify-content-center gap-2">
-                <button class="btn btn-warning" type="submit">Update</button>
+                <a href="/dashboard"><button class="btn btn-warning" type="submit">Update</button></a>
                 <a href="/event" class="btn btn-danger">Cancel</a>
             </div>
         </form>
