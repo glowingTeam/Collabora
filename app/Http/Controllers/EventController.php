@@ -12,9 +12,8 @@ class EventController extends Controller
     function index() {
         $event = Event::where('account_id', session('account')->id)->get();
         return view('event/index', ['eventList' => $event]);
-        // $search = $request->search;
-        // $event = event::where('name_event', 'LIKE', '%'.$search.'%')->get();
     }
+    
     function adminEvent(){
         $event = Event::all();
         return view('event/index', ['eventList' => $event]);
@@ -33,7 +32,6 @@ class EventController extends Controller
     }
 
     function store(Request $request) {
-        // $filePath = 'null';
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -54,6 +52,7 @@ class EventController extends Controller
         $event = Event::find($id);
         $avgRating = Rating::where('event_id', $event->id)->avg('star');
         return view('page/event-show', [
+            
             'eventList' => $event,
             'avgRating' => $avgRating,
         ]); 

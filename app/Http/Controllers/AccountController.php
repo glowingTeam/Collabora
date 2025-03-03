@@ -48,9 +48,9 @@ class AccountController extends Controller
     {
         if ($request->password == $request->passwordconfirm) {
             $validateData = $request->validate([
-                'name' => 'required',
-                'email' => 'required',
-                'password' => 'required'
+                'name' => 'required|string|max:20',
+                'email' => 'required|email|unique:accounts,email',
+                'password' => 'required|min:8|confirmed'
             ]);
 
             $validateData['password'] = bcrypt($validateData['password']);
@@ -62,7 +62,7 @@ class AccountController extends Controller
             ]);
             return redirect('/account');
         } else {
-            return redirect('/page/register')->withErrors('eror','Password yang anda masukkan berbeda!');
+            return redirect('/page/register')->withErrors('error','Password yang anda masukkan berbeda!');
         }
     }
 

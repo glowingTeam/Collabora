@@ -71,6 +71,7 @@
 
 <body>
 
+
     <br>
     <br>
     <div class="heading">
@@ -80,7 +81,9 @@
     <div class="container ">
         <section class="show">
             <div class="show-image">
-                <img src="{{ asset('img/potret3.jpg') }}" alt="Event Image">
+                {{-- <img src="{{ asset('img/potret3.jpg') }}" alt="Event Image"> --}}
+                <img src="{{ asset('storage/' . $eventList->event_image) }}" alt="Event Image">
+
             </div>
             <div class="show-content">
                 <h2>📍{{ $eventList->location }}</h2>
