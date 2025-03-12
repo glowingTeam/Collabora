@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
-use app\Models\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use PharIo\Manifest\Email;
 
 // use Illuminate\Support\Facades\Hash;
 
@@ -31,16 +32,25 @@ class SessionController extends Controller
                 'password' => 'required'
             ]);
 
-            $data = Account::where('email', $request->email)->firstOrFail();
+            // $data = Account::where('email', $request->email)->firstOrFail();
+            $data = Account::where('email', $request->email)->first();
+            if (!$data) {
+                return redirect('/account')->withErrors(['error' => 'Email tidak ditemukan']);
+            }
+
+            
             if (Hash::check($request->password, $data->password)) {
                 session(['account' => $data]);
                 return redirect('/dashboard')->with('success', 'berhasil login');
             } else {
                 return redirect('/account')->withErrors('Email dan Password yang dimasukkan tidak valid');
             }
-        } catch (\Exception $e) {
-            dd($e);
+        }finally{
+
         }
+        // catch (\Exception $e) {
+        //     dd($e);
+        // }
     }
     function login(Request $request)
     {
@@ -56,7 +66,7 @@ class SessionController extends Controller
         if (session()->has('account')) {
             session()->flush();
         }
-        return redirect('/')->with('succes', 'Berhasil Logout');
+        return redirect('/')->with('success', 'Berhasil Logout');
     }
 
     //Menampilkan form register
@@ -68,51 +78,26 @@ class SessionController extends Controller
     // Fungsional Register
     function register(Request $request)
     {
-        Session::flash('name', $request->name);
-        Session::flash('email', $request->email);
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:account',
-            'password' => 'required|min:6'
-        ], [
-            'name.required' => 'nama wajib diisi',
-            'email.required' => 'email wajib diisi',
-            'email.email' => 'silahkan memasukan email yang valid',
-            'email.unique' => 'email sudah pernah digunakan, silahkan pilih email yang lain',
-            'password.required' => 'password wajib diisi',
-            'password.min' => 'minimal password e lebih dari 6 huruf lha ya cok cok'
-        ]);
-
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'role' => 'user',
-            'password' => $request->password
-        ];
-
-
-        $data = new User;
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->role = 'user';
-        $data->password = $request->password;
-        $data->save();
-
+        try {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email|unique:accounts',
+                'password' => 'required|confirmed|min:6'
+            ]);
         
+            // Create user
+            $user = new User();
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->role = 'user';
+            $user->password = Hash::make($request->password);
+            $user->save();
+        
+            return redirect('/login')->with('success', 'Registrasi berhasil!');
 
-        $infologin = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
-
-        return redirect('/page');
-
-        // if (Auth::attempt($infologin)) {
-        //     // return redirect('dashboard')->with('success', 'Berhasil login');
-        //     return 'sukses';
-        // }else{
-        //     // return redirect('page')->withErrors('Username dan passwword yang dimasukan tidak valiis');
-        //     return 'gagal';
-        // }
+            
+        } catch (\Exception $e) {
+            return redirect('/register')->withErrors(['error' => 'Terjadi kesalahan: ' . $e->getMessage()]);
+        }
     }
 }

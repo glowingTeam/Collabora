@@ -33,7 +33,7 @@
 
         <div class="register-link">
             <p>Don't have an account? <a 
-            href="/account/create">Register</a></p>
+            href="/account/create">Create Account</a></p>
         </div>
 
         
@@ -45,6 +45,7 @@
             <li>{{ $error }}</li>
         @endforeach
     </div>
+
 </div>
 </body>
 </html>

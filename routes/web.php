@@ -56,6 +56,7 @@ Route::get('/partner',[SponsorshipController::class, 'partner']);
 
 Route::resource('/account', AccountController::class);
 Route::post('/masuk', [SessionController::class, 'masuk']);
+Route::post('/register', [AccountController::class, 'store']);
 Route::get('/logout', [SessionController::class, 'logout']);
 Route::get('/forgot-password', function(){
     return view('page.forgot-pass');

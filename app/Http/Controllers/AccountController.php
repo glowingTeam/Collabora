@@ -46,25 +46,27 @@ class AccountController extends Controller
     // Fungsional Register
     public function store(Request $request)
     {
-        if ($request->password == $request->passwordconfirm) {
-            $validateData = $request->validate([
-                'name' => 'required|string|max:20',
-                'email' => 'required|email|unique:accounts,email',
-                'password' => 'required|min:8|confirmed'
-            ]);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:accounts',
+            'password' => 'required|confirmed|min:6' // `confirmed` checks if `password_confirmation` matches
+        ]);
 
-            $validateData['password'] = bcrypt($validateData['password']);
-            DB::insert('INSERT INTO accounts (name, email, role, password) VALUES (?, ?, ?, ?)', [
-                $validateData['name'],
-                $validateData['email'],
-                'user',
-                $validateData['password']
-            ]);
-            return redirect('/account');
-        } else {
-            return redirect('/page/register')->withErrors('error','Password yang anda masukkan berbeda!');
-        }
+        // Hash password before saving
+        $password = bcrypt($request->password);
+
+        // Insert into database
+        DB::table('accounts')->insert([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role' => 'user',
+            'password' => $password
+        ]);
+
+        // return redirect('/account')->with('success', 'Akun berhasil dibuat!');
+        return response()->json(['message' => 'You Have Created Your Account!']);        
     }
+
 
     /**
      * Display the specified resource.
