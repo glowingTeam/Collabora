@@ -26,19 +26,19 @@
 
          <button type="submit" class="btn">Login</button>
 
-        <div class="register-link">
-            <p>Forgot <a 
+        {{-- <div class="register-link">
+            <p>Forgot <a
             href="/forgot-password"> Password ?</a></p>
-        </div>
+        </div> --}}
 
         <div class="register-link">
-            <p>Don't have an account? <a 
+            <p>Don't have an account? <a
             href="/account/create">Create Account</a></p>
         </div>
 
-        
 
-        
+
+
          </form>
 
         @foreach ($errors->all() as $error)

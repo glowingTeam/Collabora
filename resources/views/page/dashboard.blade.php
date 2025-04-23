@@ -25,6 +25,7 @@
                 <div class="judul2">
                     <h1><b>Hi, {{ session('account')['name'] }}!</b></h1>
                 </div>
+
                 <br>
                 <section class="container">
                     <div class="slide-wrapper">
@@ -77,7 +78,7 @@
                                 <h2 class="name_event">
                                     <br>{{ $event->name_event }}
                                 </h2>
-                            
+
                                 <a href="/event/show/{{ $event->id }}"><button class="button">View More</button></a>
                                 <button class="button" data-toggle="modal"
                                     data-target="#modalEventRegist{{ $event->id }}">Volunteer</button>

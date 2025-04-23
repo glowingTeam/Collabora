@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class RatingController extends Controller
 {
-    // use HasFactory;  
+    // use HasFactory;
 
     // CRUD Functions
 
     public function index()
     {
-        
+        // return view('page.ratingList');
     }
 
     public function showByEvent($id){

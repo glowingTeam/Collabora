@@ -31,7 +31,7 @@
                     @endif
                     @if (session('account')['role'] == 'user')
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="/#">Rewarding</a>
+                            <a class="nav-link mx-lg-2" href="/rating">Rewarding</a>
                         </li>
                     @endif
                     @if (session('account')['role'] == 'admin')

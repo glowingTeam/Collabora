@@ -43,7 +43,7 @@
 
             <div class="d-flex justify-content-center gap-2">
                 <button class="btn btn-success" type="submit">Create</button>
-                <a href="/dashboard"> <button class="btn btn-danger">Cancel</button> </a>
+                <a class="btn btn-danger" href="../event/index">Cancel </a> {{-- eca --}}
             </div>
         </form>
     </div>

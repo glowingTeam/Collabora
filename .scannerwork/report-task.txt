@@ -1,0 +1,6 @@
+projectKey=collabora
+serverUrl=http://localhost:9099
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9099/dashboard?id=collabora
+ceTaskId=ecd8b799-70f2-44cd-a7f8-4b21671a15d9
+ceTaskUrl=http://localhost:9099/api/ce/task?id=ecd8b799-70f2-44cd-a7f8-4b21671a15d9

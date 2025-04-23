@@ -7,7 +7,7 @@
     <br>
     <div class="d-flex mb-4">
         <div class="d-flex ms-auto">
-            <a href="event/create" class="btn btn-dark">Create Data</a>
+            <a href="event/create" class="btn btn-dark">Create Event</a> {{-- eca --}}
         </div>
     </div>
 <div class="bg-light rounded px-3 py-2">
@@ -38,10 +38,15 @@
                         <a class="btn btn-outline-secondary" href="/event/show/{{ $item->id }}">Show</a>
                         <a class="btn btn-outline-warning" href="/event/edit/{{ $item->id }}">Edit</a>
                         <a class="btn btn-outline-primary" href="/sponsorship/{{$item->id}}">Request</a>
+
+                        {{-- <a class="btn btn-outline-primary" href="/sponsorship/{{$item->id}}">Sponsor</a> --}} {{-- eca --}}
+
                         <a class="btn btn-outline-dark"
                             href="{{ route('show.volunteer', ['event' => $item->id]) }}">Volunteer</a>
+
                         <a class="btn btn-outline-success"
                             href="{{ route('show.accepted.volunteer', ['event' => $item->id]) }}">Member</a>
+
                         <button class="ml-5 btn btn-outline-danger delete-btn"
                             data-id="{{ $item->id }}">Delete</button>
                     </td>

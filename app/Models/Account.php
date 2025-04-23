@@ -16,7 +16,7 @@ class Account extends Authenticatable
     {
         return $this->belongsTo(User::class, 'foreign_key', 'other_key');
     }
-    
+
     protected $guarded = [
         'id','role'
     ];
@@ -26,7 +26,7 @@ class Account extends Authenticatable
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'nama', 'email', 'password'
+        'name', 'email', 'password', 'role'
     ];
 
     // protected $hidden = [

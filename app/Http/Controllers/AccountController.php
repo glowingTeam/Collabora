@@ -1,5 +1,7 @@
 <?php
 
+// namespace App\Http\Controllers;
+
 namespace App\Http\Controllers;
 
 use App\Models\Account;
@@ -14,6 +16,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     // Menampilkan form login
     function index()
     {
@@ -64,7 +67,7 @@ class AccountController extends Controller
         ]);
 
         // return redirect('/account')->with('success', 'Akun berhasil dibuat!');
-        return response()->json(['message' => 'You Have Created Your Account!']);        
+        return response()->json(['message' => 'You Have Created Your Account!']);
     }
 
 
@@ -101,7 +104,7 @@ class AccountController extends Controller
     // Fungsional Edit
     public function update(Request $request, Account $account)
     {
-        
+
         $validateData = $request->validate([
             'name' => 'required',
             'email' => 'required|email',
@@ -111,8 +114,8 @@ class AccountController extends Controller
         $account->name = $validateData['name'];
         $account->email = $validateData['email'];
         $account->password = bcrypt($validateData['password']);
-        
-        
+
+
         $account->save();
         return redirect()->route('manage');
     }
@@ -142,5 +145,5 @@ class AccountController extends Controller
     public function forgot(){
         return view('page.forgot-pass');
     }
-    
+
 }
