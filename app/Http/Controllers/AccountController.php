@@ -8,6 +8,7 @@ use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AccountController extends Controller
 {
@@ -47,13 +48,49 @@ class AccountController extends Controller
      * @return \Illuminate\Http\Response
      */
     // Fungsional Register
+
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required',
+    //         'email' => 'required|email|unique:accounts',
+    //         'password' => 'required|confirmed|min:6' // `confirmed` checks if `password_confirmation` matches
+    //     ]);
+
+    //     // Hash password before saving
+    //     $password = bcrypt($request->password);
+
+    //     // Insert into database
+    //     DB::table('accounts')->insert([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'role' => 'user',
+    //         'password' => $password
+    //     ]);
+
+    //     // return redirect('/account')->with('success', 'Akun berhasil dibuat!');
+    //     return response()->json(['message' => 'You Have Created Your Account!']);
+    // }
+
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email|unique:accounts',
-            'password' => 'required|confirmed|min:6' // `confirmed` checks if `password_confirmation` matches
+            'email' => 'required|email|unique:accounts,email',
+            'password' => 'required|confirmed|min:6'
+        ], [
+            'email.unique' => 'Akun sudah digunakan!',
+            'email.email' => 'Format email tidak valid.',
+            'password.confirmed' => 'Konfirmasi password tidak cocok.',
         ]);
+
+        if ($validator->fails()) {
+            // return response()->json([
+            //     'errors' => $validator->errors()
+            // ], 422);
+            // 422 = Unprocessable Entity
+            return response()->json(['error' => 'Email has already been used']);
+        }
 
         // Hash password before saving
         $password = bcrypt($request->password);
@@ -65,9 +102,6 @@ class AccountController extends Controller
             'role' => 'user',
             'password' => $password
         ]);
-
-        // return redirect('/account')->with('success', 'Akun berhasil dibuat!');
-        return response()->json(['message' => 'You Have Created Your Account!']);
     }
 
 
